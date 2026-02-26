@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAYPHORIA X — Confidence. Creativity. Couture.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f6f6f6;
+            --white: #ffffff;
+            --black: #000000;
+            --accent: #e5bcef;
+            --accent-light: #f0e8ff;
+            --text: #1a1a1a;
+            --text-muted: #666666;
+            --border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Neuton', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        p, .body-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .announcement {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 0.75rem 0;
+            font-size: 0.85rem;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Neuton', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg) 100%);
+            overflow: hidden;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(229, 188, 239, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-family: 'Neuton', serif;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            margin: 2rem auto 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--black);
+            background: transparent;
+            color: var(--black);
+            border-radius: 0;
+            font-family: 'Neuton', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        .btn-accent {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Neuton', serif;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ABOUT KAYCI ===== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .credential-item {
+            padding: 1.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .credential-item:hover {
+            box-shadow: 0 0 15px rgba(229, 188, 239, 0.5), 0 0 30px rgba(229, 188, 239, 0.3), 0 0 45px rgba(229, 188, 239, 0.15);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .credential-item h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-item p {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== BRAND / COLLECTIONS ===== */
+        .brand {
+            background: var(--bg);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .collection-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 300px;
+        }
+
+        .collection-card:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .collection-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .collection-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== AURA WEAR SECTION ===== */
+        .aura-wear {
+            background: var(--accent-light);
+        }
+
+        .aura-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .aura-intro h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .aura-intro p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .energy-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .energy-chip {
+            padding: 1.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+            cursor: default;
+        }
+
+        .energy-chip:hover {
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(229, 188, 239, 0.3), 0 4px 15px rgba(0, 0, 0, 0.08), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            border-color: rgba(229, 188, 239, 0.5);
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .energy-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 auto 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .energy-chip:hover .energy-dot {
+            box-shadow: 0 0 12px currentColor, 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .energy-chip label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== COMMUNITY ===== */
+        .community {
+            background: var(--white);
+        }
+
+        .community-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .community-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        .community-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.2rem;
+        }
+
+        .social-btn:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* ===== PRESS BAR ===== */
+        .press {
+            padding: 2rem 0;
+            background: var(--black);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .press-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .press-item {
+            display: inline-block;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'Neuton', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-right: 3rem;
+        }
+
+        .press-item::after {
+            content: '·';
+            margin-left: 3rem;
+            color: var(--accent);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: var(--white);
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin-top: 2rem;
+            border: 2px solid var(--black);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            background: var(--white);
+            border: none;
+            color: var(--text);
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Neuton', serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(229, 188, 239, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(229, 188, 239, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        FREE U.S. SHIPPING ON ORDERS OVER $100
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <img src="https://kayphoriax.com/cdn/shop/files/7D55A48C-9A63-4FAB-A803-B198E76C68DA_300x300.png" alt="KAYPHORIA X">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#brand">Collections</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#aura">Aura Wear</a></li>
+                <li><a href="https://kayphoriax.com">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Confidence.<br>Creativity.<br>Couture.</h1>
+            <p>Luxury fashion built on inclusivity and authenticity. Designed by Kayci Chisholm, featured at NYFW and LAFW.</p>
+            <div class="hero-image">
+                <img id="hero-photo" src="" alt="Kayci Chisholm" style="opacity: 0;">
+                <span style="opacity: 0.3;">Add kayci-hero.jpg to kayphoriax-website folder</span>
+            </div>
+            <div class="hero-ctas">
+                <a href="https://kayphoriax.com" class="btn btn-primary">Shop Now</a>
+                <a href="#aura" class="btn btn-accent">Explore Aura Wear</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Kayci -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2>The Founder</h2>
+                    <p><strong>Kayci Chisholm</strong> is the founder and CEO of KAYPHORIA X, a luxury couture and lingerie brand founded in October 2019. She earned her BS in Animal Science & Pre-Vet Medicine from Tuskegee University and is pursuing her Master of Professional Studies in Fashion Business from LIM College.</p>
+
+                    <p>Kayci's journey from runway to brand founder showcases her multifaceted expertise. As a <strong>SHEIN Collaborating Designer</strong> since June 2022, she creates exclusive capsule collections. Her work as <strong>Creative Director at The Model Experience (TME)</strong> has positioned her at major fashion events, coordinating runway presentations, editorial shoots, and influencer collaborations at New York Fashion Week and LA Fashion Week.</p>
+
+                    <p>A founding member of <strong>Boe Club</strong> and a two-time <strong>Met Gala</strong> attendee, Kayci combines her fashion expertise with technology through Aura Wear — an AI-powered styling platform that embodies her mission: fashion for everyone.</p>
+
+                    <div class="credentials">
+                        <div class="credential-item reveal">
+                            <h4>Founder & CEO</h4>
+                            <p>KAYPHORIA X LLC (Oct 2019–Present)</p>
+                        </div>
+                        <div class="credential-item reveal">
+                            <h4>Creative Director</h4>
+                            <p>The Model Experience (Feb 2020–Present)</p>
+                        </div>
+                        <div class="credential-item reveal">
+                            <h4>Collaborating Designer</h4>
+                            <p>SHEIN (June 2022–Present)</p>
+                        </div>
+                        <div class="credential-item reveal">
+                            <h4>Education</h4>
+                            <p>LIM College | Tuskegee University</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image reveal">
+                    <img id="about-photo" src="" alt="Kayci Chisholm" style="opacity: 0;">
+                    <span style="opacity: 0.3;">Add kayci-about.jpg to kayphoriax-website folder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand / Collections -->
+    <section class="brand" id="brand">
+        <div class="container">
+            <h2 class="section-title reveal">Collections</h2>
+            <div class="collections-grid">
+                <a href="https://kayphoriax.com/collections/l-i-n-g-e-r-i-e" class="collection-card reveal">
+                    <h3>L I N G E R I E</h3>
+                    <p>Luxury intimate wear celebrating every body and identity</p>
+                </a>
+                <a href="https://kayphoriax.com/collections/a-c-c-e-s-s-o-r-i-e-s" class="collection-card reveal">
+                    <h3>A C C E S S O R I E S</h3>
+                    <p>Statement pieces that complete your couture look</p>
+                </a>
+                <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal">
+                    <h3>K X S S</h3>
+                    <p>Bold streetwear that makes a statement</p>
+                </a>
+                <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal">
+                    <h3>R U N W A Y</h3>
+                    <p>Curated runway-inspired pieces</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aura Wear Section -->
+    <section class="aura-wear" id="aura">
+        <div class="container">
+            <div class="aura-intro reveal">
+                <h2>Aura Wear</h2>
+                <p>Your Clothes Speak. We Help Them Listen.</p>
+                <p>An AI-powered personal styling app powered by Claude and GPT-4o. Get outfit recommendations based on your mood, energy, and style with Soul Aura check-ins.</p>
+            </div>
+
+            <div class="reveal" style="text-align: center; margin: 2rem 0;">
+                <h3 style="font-family: 'Neuton', serif; font-size: 1.1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">SOUL AURA ENERGY</h3>
+                <div class="energy-colors">
+                    <div class="energy-chip"><div class="energy-dot" style="background: #7DA0CA;"></div><label>Calm</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #FFD166;"></div><label>Vibrant</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #8FA998;"></div><label>Grounded</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #A594F9;"></div><label>Reflective</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #E85D75;"></div><label>Confident</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #F7BAD2;"></div><label>Tender</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #FF8C42;"></div><label>Bold</label></div>
+                    <div class="energy-chip"><div class="energy-dot" style="background: #B2A4FF;"></div><label>Dreamy</label></div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <h3>AI Stylist</h3>
+                    <p>Conversational advice powered by Claude</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>Soul Aura Check-In</h3>
+                    <p>Connect your mood to your outfit</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>Avatar Generation</h3>
+                    <p>See yourself in styles before you buy</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>Digital Closet</h3>
+                    <p>Organize and discover your wardrobe</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">COMING SOON TO iOS</p>
+                <button class="btn btn-primary" onclick="document.getElementById('aura-waitlist-email').focus();">Join the Waitlist</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="community-content">
+                <h2>The KAYPHORIA Krew</h2>
+                <p>A global community celebrating inclusion, authenticity, and empowerment through fashion. Join us across social platforms.</p>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/kayphoriaofficial/" class="social-btn" title="Instagram">📸</a>
+                    <a href="https://www.instagram.com/kayphoriax/" class="social-btn" title="Brand Instagram">👗</a>
+                    <a href="https://www.youtube.com/@kayphoriaofficial" class="social-btn" title="YouTube">▶️</a>
+                    <a href="https://www.tiktok.com/@kayphoriaofficial" class="social-btn" title="TikTok">🎵</a>
+                    <a href="https://x.com/kayphoriaoffici" class="social-btn" title="X">𝕏</a>
+                    <a href="https://discord.gg/K6cJmSZv" class="social-btn" title="Discord">💬</a>
+                    <a href="https://www.twitch.tv/kayphoriaofficial" class="social-btn" title="Twitch">🎮</a>
+                    <a href="https://linktr.ee/KAYPHORIA" class="social-btn" title="Linktree">🔗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Bar -->
+    <section class="press">
+        <div class="press-content">
+            <span class="press-item">NEW YORK FASHION WEEK</span>
+            <span class="press-item">LA FASHION WEEK</span>
+            <span class="press-item">SHEIN DESIGNER</span>
+            <span class="press-item">THE MODEL EXPERIENCE</span>
+            <span class="press-item">VOGUE</span>
+            <span class="press-item">LIM COLLEGE</span>
+            <span class="press-item">CANVASREBEL</span>
+            <span class="press-item">VOYAGE LA</span>
+            <span class="press-item">BOLD JOURNEY</span>
+            <span class="press-item">TUSKEGEE UNIVERSITY</span>
+            <span class="press-item">NEW YORK FASHION WEEK</span>
+            <span class="press-item">LA FASHION WEEK</span>
+            <span class="press-item">SHEIN DESIGNER</span>
+            <span class="press-item">THE MODEL EXPERIENCE</span>
+            <span class="press-item">VOGUE</span>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get a Dose of the KAYPHORIA X Wave</h2>
+                <p>Weekly updates on collections, community moments, and Aura Wear launch news.</p>
+                <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                    <input type="email" id="newsletter-email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">✓ Subscribe to get news straight to your inbox</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aura Wear Waitlist (hidden section for form) -->
+    <div style="display: none;">
+        <form id="aura-form" onsubmit="handleAuraSignup(event)">
+            <input type="email" id="aura-waitlist-email" placeholder="Your email" required>
+            <button type="submit">Join</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>KAYPHORIA X</h4>
+                    <a href="https://kayphoriax.com">Shop</a>
+                    <a href="#about">About Kayci</a>
+                    <a href="#brand">Collections</a>
+                    <a href="https://kayphoriax.com/pages/faq">FAQ</a>
+                </div>
+                <div class="footer-section">
+                    <h4>AURA WEAR</h4>
+                    <a href="#aura">About the App</a>
+                    <a href="#" onclick="document.getElementById('aura-waitlist-email').focus();">Join the Waitlist</a>
+                    <a href="https://kayphoriax.com">Built by Kayci</a>
+                </div>
+                <div class="footer-section">
+                    <h4>CONNECT</h4>
+                    <a href="https://www.instagram.com/kayphoriaofficial/">Instagram</a>
+                    <a href="https://www.youtube.com/@kayphoriaofficial">YouTube</a>
+                    <a href="https://linktr.ee/KAYPHORIA">Linktree</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 KAYPHORIA X LLC. All rights reserved.</p>
+                <p>Built by <a href="https://luxcorai.vercel.app/">LuxCor AI</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== CONFIG: FORMSPREE FORM IDs =====
+        // Sign up at formspree.io and create a form, then paste the form ID here
+        const FORMSPREE_NEWSLETTER_ID = 'YOUR_FORMSPREE_ID'; // e.g. 'xpwqdopb'
+        const FORMSPREE_AURA_ID = 'YOUR_FORMSPREE_ID';
+
+        // ===== Navigation scroll effect =====
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // ===== Intersection Observer for scroll reveals =====
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== Smooth scroll for anchors =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== NEWSLETTER SIGNUP =====
+        async function handleNewsletterSignup(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+
+            if (FORMSPREE_NEWSLETTER_ID === 'YOUR_FORMSPREE_ID') {
+                alert('Newsletter signup not yet configured. Please contact the admin.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://formspree.io/f/${FORMSPREE_NEWSLETTER_ID}`, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(document.getElementById('newsletter-form'))
+                });
+
+                if (response.ok) {
+                    alert(`Thanks! Check your email at ${email} for confirmation.`);
+                    document.getElementById('newsletter-email').value = '';
+                } else {
+                    alert('Error signing up. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error signing up. Please try again.');
+            }
+        }
+
+        // ===== AURA WEAR WAITLIST =====
+        async function handleAuraSignup(e) {
+            e.preventDefault();
+            const email = document.getElementById('aura-waitlist-email').value;
+
+            if (FORMSPREE_AURA_ID === 'YOUR_FORMSPREE_ID') {
+                alert('Aura Wear waitlist not yet configured. Please contact the admin.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://formspree.io/f/${FORMSPREE_AURA_ID}`, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(document.getElementById('aura-form'))
+                });
+
+                if (response.ok) {
+                    alert(`You're on the Aura Wear waitlist! We'll email ${email} when it launches.`);
+                    document.getElementById('aura-waitlist-email').value = '';
+                } else {
+                    alert('Error joining waitlist. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error joining waitlist. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
