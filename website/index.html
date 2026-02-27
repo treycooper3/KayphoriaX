@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://kayphoriax.com data:; connect-src https://formspree.io; script-src 'self' 'unsafe-inline';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="KAYPHORIA X — Luxury fashion brand by Kayci Chisholm. Confidence. Creativity. Couture. Featured at NYFW and LAFW.">
     <title>KAYPHORIA X — Confidence. Creativity. Couture.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg: #f6f6f6;
             --white: #ffffff;
             --black: #000000;
             --accent: #e5bcef;
+            --accent-dark: #c89dd4;
             --accent-light: #f0e8ff;
+            --deep-purple: #191324;
             --text: #1a1a1a;
             --text-muted: #666666;
             --border: #e0e0e0;
+            --glow: rgba(229, 188, 239, 0.4);
+            --glow-strong: rgba(229, 188, 239, 0.6);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Playfair Display', Georgia, serif;
@@ -52,29 +51,9 @@
             font-weight: 400;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        /* ===== NAVBAR ===== */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1.5rem 2rem;
-            background: transparent;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-        }
-
+        /* ===== ANNOUNCEMENT BAR ===== */
         .announcement {
             background: var(--black);
             color: var(--white);
@@ -85,6 +64,24 @@
             letter-spacing: 0.05em;
         }
 
+        /* ===== NAVBAR ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -93,10 +90,7 @@
             align-items: center;
         }
 
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
+        .logo img { height: 50px; width: auto; }
 
         .nav-links {
             display: flex;
@@ -113,100 +107,85 @@
             letter-spacing: 0.05em;
             transition: color 0.3s ease;
             text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* ===== HERO ===== */
-        .hero {
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--white) 0%, var(--bg) 100%);
-            overflow: hidden;
-            padding: 6rem 2rem 2rem;
         }
 
-        .hero::before {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(229, 188, 239, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            pointer-events: none;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            max-width: 900px;
-            animation: fadeInUp 1s ease-out;
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-family: 'Neuton', serif;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-        }
-
-        .hero-image {
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 400px;
-            height: 400px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            margin: 2rem auto 0;
-            overflow: hidden;
-            display: flex;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            gap: 2.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .mobile-menu.open { display: flex; opacity: 1; }
+
+        .mobile-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Neuton', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
         }
 
-        .hero-ctas {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+        .mobile-menu a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
         }
 
+        /* ===== BUTTONS ===== */
         .btn {
             padding: 1rem 2.5rem;
             border: 2px solid var(--black);
@@ -219,15 +198,27 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn:hover {
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
             background: var(--black);
-            color: var(--white);
+            transition: left 0.4s ease;
+            z-index: -1;
         }
+
+        .btn:hover { color: var(--white); }
+        .btn:hover::before { left: 0; }
 
         .btn-primary {
             background: var(--black);
@@ -235,55 +226,216 @@
             border-color: var(--black);
         }
 
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--black);
-        }
+        .btn-primary::before { background: var(--white); left: -100%; }
+        .btn-primary:hover { color: var(--black); }
+        .btn-primary:hover::before { left: 0; }
 
         .btn-accent {
             border-color: var(--accent);
             color: var(--accent);
         }
 
-        .btn-accent:hover {
-            background: var(--accent);
+        .btn-accent::before { background: var(--accent); }
+        .btn-accent:hover { color: var(--white); border-color: var(--accent); }
+
+        .btn-white {
+            border-color: var(--white);
             color: var(--white);
         }
 
+        .btn-white::before { background: var(--white); }
+        .btn-white:hover { color: var(--black); }
+
         /* ===== SECTIONS ===== */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
+        section { padding: 7rem 0; position: relative; }
 
         .section-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-family: 'Neuton', serif;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             text-align: center;
             letter-spacing: -0.02em;
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Section dividers */
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 3rem;
+        }
+
+        /* ===== SCROLL REVEAL SYSTEM ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+            background: var(--deep-purple);
+            color: var(--white);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, #2a1f3d 50%, var(--deep-purple) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(25, 19, 36, 0.3) 0%, rgba(25, 19, 36, 0.8) 100%);
+        }
+
+        /* Floating accent orbs */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(229, 188, 239, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            z-index: 2;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(229, 188, 239, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            z-index: 2;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-family: 'Neuton', serif;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero h1 .accent { color: var(--accent); }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== ABOUT KAYCI ===== */
-        .about {
-            background: var(--white);
-        }
+        .about { background: var(--white); }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
         }
 
@@ -299,10 +451,7 @@
             line-height: 1.8;
         }
 
-        .about-text strong {
-            color: var(--black);
-            font-weight: 700;
-        }
+        .about-text strong { color: var(--black); font-weight: 700; }
 
         .credentials {
             display: grid;
@@ -315,14 +464,14 @@
             padding: 1.5rem;
             background: var(--bg);
             border: 1px solid var(--border);
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: default;
         }
 
         .credential-item:hover {
-            box-shadow: 0 0 15px rgba(229, 188, 239, 0.5), 0 0 30px rgba(229, 188, 239, 0.3), 0 0 45px rgba(229, 188, 239, 0.15);
+            box-shadow: 0 0 20px var(--glow), 0 0 40px rgba(229, 188, 239, 0.2);
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .credential-item h4 {
@@ -334,15 +483,12 @@
             margin-bottom: 0.5rem;
         }
 
-        .credential-item p {
-            font-size: 0.95rem;
-            color: var(--text);
-        }
+        .credential-item p { font-size: 0.95rem; color: var(--text); }
 
         .about-image {
             width: 100%;
-            height: 500px;
-            background: var(--bg);
+            height: 550px;
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg) 100%);
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -350,18 +496,105 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             overflow: hidden;
+            position: relative;
         }
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ===== BRAND EXPERIENCE (NEW) ===== */
+        .brand-experience {
+            background: var(--deep-purple);
+            color: var(--white);
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ===== BRAND / COLLECTIONS ===== */
-        .brand {
-            background: var(--bg);
+        .brand-experience::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(229, 188, 239, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
         }
+
+        .brand-experience-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-experience-content .quote-mark {
+            font-size: 5rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .brand-experience-content blockquote {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .brand-experience-content .brand-author {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .brand-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-value {
+            text-align: center;
+            padding: 2rem 1rem;
+            border: 1px solid rgba(229, 188, 239, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .brand-value:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(229, 188, 239, 0.15);
+        }
+
+        .brand-value h3 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-value p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .brand-values { grid-template-columns: 1fr; }
+        }
+
+        /* ===== COLLECTIONS ===== */
+        .brand { background: var(--bg); }
 
         .collections-grid {
             display: grid;
@@ -377,26 +610,49 @@
             text-decoration: none;
             color: var(--text);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             min-height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.92);
+            transition: background 0.5s ease;
+            z-index: 1;
+        }
+
+        .collection-card:hover::before {
+            background: rgba(240, 232, 255, 0.88);
         }
 
         .collection-card:hover {
-            background: var(--accent-light);
             border-color: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px var(--glow), 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
+        .collection-card h3,
+        .collection-card p { position: relative; z-index: 2; }
+
         .collection-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            transition: color 0.3s ease;
         }
+
+        .collection-card:hover h3 { color: var(--deep-purple); }
 
         .collection-card p {
             font-size: 0.95rem;
@@ -404,16 +660,31 @@
             line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            .collections-grid {
-                grid-template-columns: 1fr;
-            }
+        .collection-card .card-arrow {
+            position: relative;
+            z-index: 2;
+            margin-top: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
         }
 
-        /* ===== AURA WEAR SECTION ===== */
-        .aura-wear {
-            background: var(--accent-light);
+        .collection-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateY(0);
         }
+
+        @media (max-width: 768px) {
+            .collections-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== AURA WEAR ===== */
+        .aura-wear { background: var(--accent-light); }
 
         .aura-intro {
             text-align: center;
@@ -424,13 +695,10 @@
         .aura-intro h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: var(--deep-purple);
         }
 
-        .aura-intro p {
-            font-size: 1rem;
-            color: var(--text-muted);
-        }
+        .aura-intro p { font-size: 1rem; color: var(--text-muted); }
 
         .energy-colors {
             display: grid;
@@ -441,22 +709,22 @@
 
         .energy-chip {
             padding: 1.5rem 1rem;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 16px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             cursor: default;
         }
 
         .energy-chip:hover {
             transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 12px 30px rgba(229, 188, 239, 0.3), 0 4px 15px rgba(0, 0, 0, 0.08), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 30px var(--glow), 0 4px 15px rgba(0, 0, 0, 0.08);
             border-color: rgba(229, 188, 239, 0.5);
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .energy-dot {
@@ -469,7 +737,7 @@
         }
 
         .energy-chip:hover .energy-dot {
-            box-shadow: 0 0 12px currentColor, 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 15px currentColor, 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .energy-chip label {
@@ -493,6 +761,13 @@
             background: var(--white);
             padding: 2rem;
             border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent);
         }
 
         .feature-card h3 {
@@ -501,16 +776,10 @@
             color: var(--black);
         }
 
-        .feature-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
 
         /* ===== COMMUNITY ===== */
-        .community {
-            background: var(--white);
-        }
+        .community { background: var(--white); }
 
         .community-content {
             max-width: 800px;
@@ -548,15 +817,18 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-decoration: none;
             color: var(--text);
             font-size: 1.2rem;
         }
 
         .social-btn:hover {
-            background: var(--black);
+            background: var(--accent);
+            border-color: var(--accent);
             color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--glow);
         }
 
         /* ===== PRESS BAR ===== */
@@ -567,40 +839,41 @@
             overflow: hidden;
         }
 
-        .press-content {
+        .press-track {
             display: flex;
-            align-items: center;
-            gap: 2rem;
-            animation: marquee 30s linear infinite;
+            animation: marquee 35s linear infinite;
             white-space: nowrap;
         }
 
         .press-item {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             color: var(--white);
             font-size: 0.85rem;
             font-weight: 700;
             font-family: 'Neuton', serif;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            padding-right: 3rem;
+            padding: 0 2rem;
         }
 
         .press-item::after {
-            content: '·';
-            margin-left: 3rem;
-            color: var(--accent);
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-left: 2rem;
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
         }
 
         /* ===== NEWSLETTER ===== */
-        .newsletter {
-            background: var(--white);
-        }
+        .newsletter { background: var(--white); }
 
         .newsletter-content {
             max-width: 600px;
@@ -618,7 +891,10 @@
             gap: 0;
             margin-top: 2rem;
             border: 2px solid var(--black);
+            transition: border-color 0.3s ease;
         }
+
+        .newsletter-form:focus-within { border-color: var(--accent); }
 
         .newsletter-form input {
             flex: 1;
@@ -630,13 +906,8 @@
             font-size: 1rem;
         }
 
-        .newsletter-form input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-        }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        .newsletter-form input:focus { outline: none; }
 
         .newsletter-form button {
             padding: 1rem 2rem;
@@ -651,28 +922,34 @@
             transition: all 0.3s ease;
         }
 
-        .newsletter-form button:hover {
-            background: var(--accent);
-            color: var(--black);
+        .newsletter-form button:hover { background: var(--accent); color: var(--black); }
+
+        .form-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 1.5em;
+            transition: all 0.3s ease;
         }
 
+        .form-message.success { color: #2e7d32; }
+        .form-message.error { color: #c62828; }
+
         @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
+            .newsletter-form { flex-direction: column; }
         }
 
         /* ===== FOOTER ===== */
         footer {
             background: var(--black);
             color: var(--white);
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
             border-top: 1px solid rgba(229, 188, 239, 0.2);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
@@ -694,25 +971,48 @@
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
             font-family: 'Playfair Display', serif;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--accent);
+        .footer-section a:hover { color: var(--accent); transform: translateX(4px); }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px) translateX(0);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(229, 188, 239, 0.2);
-            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(229, 188, 239, 0.15);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'DM Sans', sans-serif;
         }
 
-        .footer-bottom p {
-            margin-bottom: 0.5rem;
-        }
+        .footer-bottom p { margin-bottom: 0.5rem; }
 
         .footer-bottom a {
             color: var(--accent);
@@ -720,31 +1020,165 @@
             transition: color 0.3s ease;
         }
 
-        .footer-bottom a:hover {
+        .footer-bottom a:hover { color: var(--white); }
+
+        .payment-methods {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .payment-badge {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== CAROUSEL ===== */
+        .carousel-section {
+            background: var(--deep-purple);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .carousel-track-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 45vh;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: var(--deep-purple);
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(25,19,36,0.6) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 3rem;
+        }
+
+        .carousel-caption {
             color: var(--white);
+            font-family: 'Neuton', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide img { height: 35vh; }
+        }
+
+        /* ===== CREDENTIAL TILE BACKGROUNDS ===== */
+        .credential-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .credential-item .cred-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .credential-item:hover .cred-bg {
+            opacity: 0.15;
+        }
+
+        .credential-item h4,
+        .credential-item p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== BRAND EXPERIENCE BACKGROUND IMAGE ===== */
+        .brand-experience-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .brand-experience-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+
+        .brand-experience-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, var(--deep-purple) 0%, rgba(25,19,36,0.5) 40%, var(--deep-purple) 100%);
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            section { padding: 4rem 0; }
+            .container { padding: 0 1.5rem; }
+            nav { padding: 1rem 1.5rem; }
+            .credentials { grid-template-columns: 1fr; }
+            .about-image { height: 350px; }
+            .hero { min-height: 90vh; padding: 4rem 1.5rem 3rem; }
+            .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
         }
     </style>
 </head>
@@ -763,24 +1197,38 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#brand">Collections</a></li>
-                <li><a href="#community">Community</a></li>
                 <li><a href="#aura">Aura Wear</a></li>
+                <li><a href="#community">Community</a></li>
                 <li><a href="https://kayphoriax.com">Shop</a></li>
             </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#brand" onclick="closeMobileMenu()">Collections</a>
+        <a href="#aura" onclick="closeMobileMenu()">Aura Wear</a>
+        <a href="#community" onclick="closeMobileMenu()">Community</a>
+        <a href="https://kayphoriax.com" onclick="closeMobileMenu()">Shop</a>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="assets/hero-bg.jpg" alt="" onerror="this.style.display='none'">
+        </div>
         <div class="hero-content">
-            <h1>Confidence.<br>Creativity.<br>Couture.</h1>
-            <p>Luxury fashion built on inclusivity and authenticity. Designed by Kayci Chisholm, featured at NYFW and LAFW.</p>
-            <div class="hero-image">
-                <img id="hero-photo" src="" alt="Kayci Chisholm" style="opacity: 0;">
-                <span style="opacity: 0.3;">Add kayci-hero.jpg to kayphoriax-website folder</span>
-            </div>
+            <p class="hero-eyebrow">KX Runway Limited Edition &mdash; FW Collection SS26</p>
+            <h1>Confidence.<br>Creativity.<br><span class="accent">Couture.</span></h1>
+            <p class="hero-tagline">Luxury fashion built on inclusivity and authenticity. Designed by Kayci Chisholm, featured at New York Fashion Week and LA Fashion Week.</p>
             <div class="hero-ctas">
-                <a href="https://kayphoriax.com" class="btn btn-primary">Shop Now</a>
+                <a href="https://kayphoriax.com" class="btn btn-white">Shop Now</a>
                 <a href="#aura" class="btn btn-accent">Explore Aura Wear</a>
             </div>
         </div>
@@ -790,7 +1238,7 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-text reveal">
+                <div class="about-text reveal-left">
                     <h2>The Founder</h2>
                     <p><strong>Kayci Chisholm</strong> is the founder and CEO of KAYPHORIA X, a luxury couture and lingerie brand founded in October 2019. She earned her BS in Animal Science & Pre-Vet Medicine from Tuskegee University and is pursuing her Master of Professional Studies in Fashion Business from LIM College.</p>
 
@@ -799,53 +1247,91 @@
                     <p>A member of <strong>Vogue Club</strong> and a two-time <strong>Met Gala</strong> attendee, Kayci combines her fashion expertise with technology through Aura Wear — an AI-powered styling platform that embodies her mission: fashion for everyone.</p>
 
                     <div class="credentials">
-                        <div class="credential-item reveal">
+                        <div class="credential-item reveal stagger-1">
+                            <div class="cred-bg" style="background-image: url('assets/cred-founder.jpg');"></div>
                             <h4>Founder & CEO</h4>
-                            <p>KAYPHORIA X LLC (Oct 2019–Present)</p>
+                            <p>KAYPHORIA X LLC (Oct 2019&ndash;Present)</p>
                         </div>
-                        <div class="credential-item reveal">
+                        <div class="credential-item reveal stagger-2">
+                            <div class="cred-bg" style="background-image: url('assets/kayci-tme.jpg'); background-position: top center;"></div>
                             <h4>Creative Director</h4>
-                            <p>The Model Experience (Feb 2020–Present)</p>
+                            <p>The Model Experience (Feb 2020&ndash;Present)</p>
                         </div>
-                        <div class="credential-item reveal">
+                        <div class="credential-item reveal stagger-3">
+                            <div class="cred-bg" style="background-image: url('assets/cred-shein.jpg');"></div>
                             <h4>Collaborating Designer</h4>
-                            <p>SHEIN (June 2022–Present)</p>
+                            <p>SHEIN (June 2022&ndash;Present)</p>
                         </div>
-                        <div class="credential-item reveal">
+                        <div class="credential-item reveal stagger-4">
+                            <div class="cred-bg" style="background-image: url('assets/cred-education.jpg');"></div>
                             <h4>Education</h4>
                             <p>LIM College | Tuskegee University</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="about-image reveal">
-                    <img id="about-photo" src="" alt="Kayci Chisholm" style="opacity: 0;">
-                    <span style="opacity: 0.3;">Add kayci-about.jpg to kayphoriax-website folder</span>
+                <div class="about-image reveal-right">
+                    <img src="assets/kayci-about.jpg" alt="Kayci Chisholm — Founder & CEO of KAYPHORIA X">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand / Collections -->
+    <!-- Brand Experience (NEW) -->
+    <section class="brand-experience" id="experience">
+        <div class="brand-experience-bg">
+            <img src="assets/KayphoriaAnime.png" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="brand-experience-content reveal">
+                <div class="quote-mark">&ldquo;</div>
+                <blockquote>KAYPHORIA X is more than a brand &mdash; it's a movement. We inspire body positivity, self-confidence, and boundless creativity, even through life's toughest moments.</blockquote>
+                <div class="brand-author">Kayci Chisholm, Founder</div>
+            </div>
+
+            <div class="brand-values">
+                <div class="brand-value reveal stagger-1">
+                    <h3>Express</h3>
+                    <p>Your artistry is your power. Wear it boldly.</p>
+                </div>
+                <div class="brand-value reveal stagger-2">
+                    <h3>Embrace</h3>
+                    <p>Every moment as if it's your last. Live fully.</p>
+                </div>
+                <div class="brand-value reveal stagger-3">
+                    <h3>Empower</h3>
+                    <p>Confidence is couture. Your light deserves to shine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
     <section class="brand" id="brand">
         <div class="container">
             <h2 class="section-title reveal">Collections</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle reveal">Curated with intention. Designed for every body.</p>
             <div class="collections-grid">
-                <a href="https://kayphoriax.com/collections/l-i-n-g-e-r-i-e" class="collection-card reveal">
+                <a href="https://kayphoriax.com/collections/l-i-n-g-e-r-i-e" class="collection-card reveal stagger-1" style="background-image: url('assets/collection-lingerie.jpg');">
                     <h3>L I N G E R I E</h3>
                     <p>Luxury intimate wear celebrating every body and identity</p>
+                    <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/a-c-c-e-s-s-o-r-i-e-s" class="collection-card reveal">
+                <a href="https://kayphoriax.com/collections/a-c-c-e-s-s-o-r-i-e-s" class="collection-card reveal stagger-2" style="background-image: url('assets/collection-accessories.jpg');">
                     <h3>A C C E S S O R I E S</h3>
                     <p>Statement pieces that complete your couture look</p>
+                    <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal">
+                <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal stagger-3" style="background-image: url('assets/collection-kxss.jpg');">
                     <h3>K X S S</h3>
                     <p>Bold streetwear that makes a statement</p>
+                    <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal">
+                <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal stagger-4" style="background-image: url('assets/collection-runway.jpg');">
                     <h3>R U N W A Y</h3>
-                    <p>Curated runway-inspired pieces</p>
+                    <p>Curated runway-inspired pieces from NYFW &amp; LAFW</p>
+                    <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
             </div>
         </div>
@@ -856,12 +1342,13 @@
         <div class="container">
             <div class="aura-intro reveal">
                 <h2>Aura Wear</h2>
-                <p>Your Clothes Speak. We Help Them Listen.</p>
-                <p>An AI-powered personal styling app powered by Claude and GPT-4o. Get outfit recommendations based on your mood, energy, and style with Soul Aura check-ins.</p>
+                <div class="section-divider" style="margin-top: 1rem;"></div>
+                <p style="font-style: italic; margin-bottom: 0.5rem;">Your Clothes Speak. We Help Them Listen.</p>
+                <p>An AI-powered personal styling app that curates outfit recommendations based on your mood, energy, and personal aesthetic. Soul Aura check-ins align your wardrobe with how you feel &mdash; turning getting dressed into a daily act of self-expression.</p>
             </div>
 
             <div class="reveal" style="text-align: center; margin: 2rem 0;">
-                <h3 style="font-family: 'Neuton', serif; font-size: 1.1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">SOUL AURA ENERGY</h3>
+                <h3 style="font-family: 'Neuton', serif; font-size: 1.1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Soul Aura Energy</h3>
                 <div class="energy-colors">
                     <div class="energy-chip"><div class="energy-dot" style="background: #7DA0CA;"></div><label>Calm</label></div>
                     <div class="energy-chip"><div class="energy-dot" style="background: #FFD166;"></div><label>Vibrant</label></div>
@@ -875,27 +1362,27 @@
             </div>
 
             <div class="features-grid">
-                <div class="feature-card reveal">
-                    <h3>AI Stylist</h3>
-                    <p>Conversational advice powered by Claude</p>
+                <div class="feature-card reveal stagger-1">
+                    <h3>AI Personal Stylist</h3>
+                    <p>Conversational styling recommendations tailored to your body type, preferences, and the occasion &mdash; available 24/7 in your pocket</p>
                 </div>
-                <div class="feature-card reveal">
+                <div class="feature-card reveal stagger-2">
                     <h3>Soul Aura Check-In</h3>
-                    <p>Connect your mood to your outfit</p>
+                    <p>Start each day by mapping your energy. Your aura guides outfit suggestions that match how you actually feel &mdash; calm, bold, dreamy, or confident</p>
                 </div>
-                <div class="feature-card reveal">
-                    <h3>Avatar Generation</h3>
-                    <p>See yourself in styles before you buy</p>
+                <div class="feature-card reveal stagger-3">
+                    <h3>Virtual Try-On</h3>
+                    <p>Generate a digital avatar and preview outfits before you buy. See how pieces work together without leaving your home</p>
                 </div>
-                <div class="feature-card reveal">
-                    <h3>Digital Closet</h3>
-                    <p>Organize and discover your wardrobe</p>
+                <div class="feature-card reveal stagger-4">
+                    <h3>Smart Closet</h3>
+                    <p>Catalog your wardrobe, discover new combinations, and track what you wear. Your closet becomes a curated collection, not clutter</p>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 2rem;">
-                <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">COMING SOON TO iOS</p>
-                <button class="btn btn-primary" onclick="document.getElementById('aura-waitlist-email').focus();">Join the Waitlist</button>
+            <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+                <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; font-family: 'DM Sans', sans-serif;">Coming Soon to iOS</p>
+                <a href="#newsletter" class="btn btn-primary">Join the Waitlist</a>
             </div>
         </div>
     </section>
@@ -904,65 +1391,112 @@
     <section class="community" id="community">
         <div class="container">
             <div class="community-content">
-                <h2>The KAYPHORIA Krew</h2>
-                <p>A global community celebrating inclusion, authenticity, and empowerment through fashion. Join us across social platforms.</p>
-                <div class="social-buttons">
-                    <a href="https://www.instagram.com/kayphoriaofficial/" class="social-btn" title="Instagram">📸</a>
-                    <a href="https://www.instagram.com/kayphoriax/" class="social-btn" title="Brand Instagram">👗</a>
-                    <a href="https://www.youtube.com/@kayphoriaofficial" class="social-btn" title="YouTube">▶️</a>
-                    <a href="https://www.tiktok.com/@kayphoriaofficial" class="social-btn" title="TikTok">🎵</a>
-                    <a href="https://x.com/kayphoriaoffici" class="social-btn" title="X">𝕏</a>
-                    <a href="https://discord.gg/K6cJmSZv" class="social-btn" title="Discord">💬</a>
-                    <a href="https://www.twitch.tv/kayphoriaofficial" class="social-btn" title="Twitch">🎮</a>
-                    <a href="https://linktr.ee/KAYPHORIA" class="social-btn" title="Linktree">🔗</a>
+                <h2 class="reveal">The KAYPHORIA Krew</h2>
+                <div class="section-divider"></div>
+                <p class="reveal">A global community celebrating inclusion, authenticity, and empowerment through fashion. Ride the #KayphoriaXWave.</p>
+                <div class="social-buttons reveal">
+                    <a href="https://www.instagram.com/kayphoriaofficial/" class="social-btn" title="Instagram" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/kayphoriax/" class="social-btn" title="Brand Instagram" aria-label="Brand Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@kayphoriaofficial" class="social-btn" title="YouTube" aria-label="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@kayphoriaofficial" class="social-btn" title="TikTok" aria-label="TikTok">
+                        <svg width="16" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M448 209.91a210.06 210.06 0 01-122.77-39.25v178.72A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 00122.77 121.33z"/></svg>
+                    </a>
+                    <a href="https://x.com/kayphoriaoffici" class="social-btn" title="X" aria-label="X">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://discord.gg/K6cJmSZv" class="social-btn" title="Discord" aria-label="Discord">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                    </a>
+                    <a href="https://linktr.ee/KAYPHORIA" class="social-btn" title="Linktree" aria-label="Linktree">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.953 15.066l-.038-4.154-4.186-.006.006-3.803 4.18.007L7.89 2.96h3.95l.026 4.15 4.19-.008-.006 3.803-4.184.007.036 4.154zm.073 6.034L7.96 16.7h3.95l.066 4.4z"/></svg>
+                    </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section" id="carousel">
+        <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="assets/Carousel 1.jpeg" alt="KAYPHORIA X Collection" loading="lazy">
+                    <div class="carousel-overlay"><span class="carousel-caption">SS26 Collection</span></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/Carousel 2.jpeg" alt="KAYPHORIA X Runway" loading="lazy">
+                    <div class="carousel-overlay"><span class="carousel-caption">Runway Ready</span></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/Carousel 3.jpeg" alt="KAYPHORIA X Editorial" loading="lazy">
+                    <div class="carousel-overlay"><span class="carousel-caption">Editorial</span></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/Carousel 4.jpeg" alt="KAYPHORIA X Couture" loading="lazy">
+                    <div class="carousel-overlay"><span class="carousel-caption">Couture</span></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/Carousel 5.jpeg" alt="KAYPHORIA X Fashion" loading="lazy">
+                    <div class="carousel-overlay"><span class="carousel-caption">#KayphoriaXWave</span></div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+                <button class="carousel-dot" onclick="goToSlide(1)"></button>
+                <button class="carousel-dot" onclick="goToSlide(2)"></button>
+                <button class="carousel-dot" onclick="goToSlide(3)"></button>
+                <button class="carousel-dot" onclick="goToSlide(4)"></button>
             </div>
         </div>
     </section>
 
     <!-- Press Bar -->
     <section class="press">
-        <div class="press-content">
-            <span class="press-item">NEW YORK FASHION WEEK</span>
-            <span class="press-item">LA FASHION WEEK</span>
-            <span class="press-item">SHEIN DESIGNER</span>
-            <span class="press-item">THE MODEL EXPERIENCE</span>
-            <span class="press-item">VOGUE</span>
-            <span class="press-item">LIM COLLEGE</span>
-            <span class="press-item">CANVASREBEL</span>
-            <span class="press-item">VOYAGE LA</span>
-            <span class="press-item">BOLD JOURNEY</span>
-            <span class="press-item">TUSKEGEE UNIVERSITY</span>
-            <span class="press-item">NEW YORK FASHION WEEK</span>
-            <span class="press-item">LA FASHION WEEK</span>
-            <span class="press-item">SHEIN DESIGNER</span>
-            <span class="press-item">THE MODEL EXPERIENCE</span>
-            <span class="press-item">VOGUE</span>
+        <div class="press-track">
+            <span class="press-item">New York Fashion Week</span>
+            <span class="press-item">LA Fashion Week</span>
+            <span class="press-item">SHEIN Designer</span>
+            <span class="press-item">The Model Experience</span>
+            <span class="press-item">Vogue Club</span>
+            <span class="press-item">Met Gala</span>
+            <span class="press-item">LIM College</span>
+            <span class="press-item">CanvasRebel</span>
+            <span class="press-item">Voyage LA</span>
+            <span class="press-item">Bold Journey</span>
+            <span class="press-item">Tuskegee University</span>
+            <span class="press-item">New York Fashion Week</span>
+            <span class="press-item">LA Fashion Week</span>
+            <span class="press-item">SHEIN Designer</span>
+            <span class="press-item">The Model Experience</span>
+            <span class="press-item">Vogue Club</span>
+            <span class="press-item">Met Gala</span>
+            <span class="press-item">LIM College</span>
+            <span class="press-item">CanvasRebel</span>
+            <span class="press-item">Voyage LA</span>
         </div>
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
         <div class="container">
-            <div class="newsletter-content">
+            <div class="newsletter-content reveal">
                 <h2>Get a Dose of the KAYPHORIA X Wave</h2>
+                <div class="section-divider"></div>
                 <p>Weekly updates on collections, community moments, and Aura Wear launch news.</p>
                 <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletterSignup(event)">
-                    <input type="email" id="newsletter-email" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Your email" required autocomplete="email">
+                    <button type="submit" id="newsletter-btn">Subscribe</button>
                 </form>
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">✓ Subscribe to get news straight to your inbox</p>
+                <div class="form-message" id="newsletter-message"></div>
             </div>
         </div>
     </section>
-
-    <!-- Aura Wear Waitlist (hidden section for form) -->
-    <div style="display: none;">
-        <form id="aura-form" onsubmit="handleAuraSignup(event)">
-            <input type="email" id="aura-waitlist-email" placeholder="Your email" required>
-            <button type="submit">Join</button>
-        </form>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -976,56 +1510,137 @@
                     <a href="https://kayphoriax.com/pages/faq">FAQ</a>
                 </div>
                 <div class="footer-section">
-                    <h4>AURA WEAR</h4>
+                    <h4>Aura Wear</h4>
                     <a href="#aura">About the App</a>
-                    <a href="#" onclick="document.getElementById('aura-waitlist-email').focus();">Join the Waitlist</a>
-                    <a href="https://kayphoriax.com">Built by Kayci</a>
+                    <a href="#newsletter">Join the Waitlist</a>
+                    <a href="#experience">Brand Story</a>
                 </div>
                 <div class="footer-section">
-                    <h4>CONNECT</h4>
-                    <a href="https://www.instagram.com/kayphoriaofficial/">Instagram</a>
-                    <a href="https://www.youtube.com/@kayphoriaofficial">YouTube</a>
-                    <a href="https://linktr.ee/KAYPHORIA">Linktree</a>
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/kayphoriaofficial/" title="Instagram" aria-label="Instagram">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@kayphoriaofficial" title="YouTube" aria-label="YouTube">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@kayphoriaofficial" title="TikTok" aria-label="TikTok">
+                            <svg width="12" height="14" viewBox="0 0 448 512" fill="currentColor"><path d="M448 209.91a210.06 210.06 0 01-122.77-39.25v178.72A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 00122.77 121.33z"/></svg>
+                        </a>
+                        <a href="https://x.com/kayphoriaoffici" title="X" aria-label="X">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://linktr.ee/KAYPHORIA" title="Linktree" aria-label="Linktree">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7.953 15.066l-.038-4.154-4.186-.006.006-3.803 4.18.007L7.89 2.96h3.95l.026 4.15 4.19-.008-.006 3.803-4.184.007.036 4.154zm.073 6.034L7.96 16.7h3.95l.066 4.4z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 KAYPHORIA X LLC. All rights reserved.</p>
-                <p>Built by <a href="https://luxcorai.vercel.app/">LuxCor AI</a></p>
+                <p>&copy; 2026 KAYPHORIA X LLC. All rights reserved.</p>
+                <p>Built by <a href="https://luxcorai.vercel.app/">LuxCor AI</a> &mdash; Powered by <a href="#">Stay Starving</a></p>
+                <div class="payment-methods">
+                    <span class="payment-badge">VISA</span>
+                    <span class="payment-badge">MASTERCARD</span>
+                    <span class="payment-badge">AMEX</span>
+                    <span class="payment-badge">PAYPAL</span>
+                    <span class="payment-badge">VENMO</span>
+                    <span class="payment-badge">DISCOVER</span>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // ===== CONFIG: FORMSPREE FORM IDs =====
-        // Sign up at formspree.io and create a form, then paste the form ID here
-        const FORMSPREE_NEWSLETTER_ID = 'YOUR_FORMSPREE_ID'; // e.g. 'xpwqdopb'
-        const FORMSPREE_AURA_ID = 'YOUR_FORMSPREE_ID';
+        // ===== CONFIG =====
+        const FORMSPREE_NEWSLETTER_ID = 'YOUR_FORMSPREE_ID';
 
-        // ===== Navigation scroll effect =====
+        // ===== CAROUSEL =====
+        let currentSlide = 0;
+        const totalSlides = 5;
+        let carouselInterval;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            if (track) track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+            resetCarouselTimer();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+            resetCarouselTimer();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetCarouselTimer();
+        }
+
+        function resetCarouselTimer() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Auto-advance carousel
+        carouselInterval = setInterval(nextSlide, 5000);
+
+        // Touch/swipe support for carousel
+        (function() {
+            let startX = 0;
+            const wrapper = document.querySelector('.carousel-track-wrapper');
+            if (!wrapper) return;
+            wrapper.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+            wrapper.addEventListener('touchend', (e) => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+            }, { passive: true });
+        })();
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            menu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== NAV SCROLL =====
         const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // ===== Intersection Observer for scroll reveals =====
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        // ===== SCROLL REVEAL (staggered) =====
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            revealObserver.observe(el);
         });
 
-        // ===== Smooth scroll for anchors =====
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1036,15 +1651,21 @@
             });
         });
 
-        // ===== NEWSLETTER SIGNUP =====
+        // ===== NEWSLETTER =====
         async function handleNewsletterSignup(e) {
             e.preventDefault();
             const email = document.getElementById('newsletter-email').value;
+            const msgEl = document.getElementById('newsletter-message');
+            const btn = document.getElementById('newsletter-btn');
 
             if (FORMSPREE_NEWSLETTER_ID === 'YOUR_FORMSPREE_ID') {
-                alert('Newsletter signup not yet configured. Please contact the admin.');
+                msgEl.textContent = 'Newsletter signup coming soon. Stay tuned!';
+                msgEl.className = 'form-message error';
                 return;
             }
+
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
 
             try {
                 const response = await fetch(`https://formspree.io/f/${FORMSPREE_NEWSLETTER_ID}`, {
@@ -1054,44 +1675,20 @@
                 });
 
                 if (response.ok) {
-                    alert(`Thanks! Check your email at ${email} for confirmation.`);
+                    msgEl.textContent = `Welcome to the KAYPHORIA X Wave! Check ${email} for confirmation.`;
+                    msgEl.className = 'form-message success';
                     document.getElementById('newsletter-email').value = '';
                 } else {
-                    alert('Error signing up. Please try again.');
+                    msgEl.textContent = 'Something went wrong. Please try again.';
+                    msgEl.className = 'form-message error';
                 }
             } catch (error) {
-                console.error('Error:', error);
-                alert('Error signing up. Please try again.');
-            }
-        }
-
-        // ===== AURA WEAR WAITLIST =====
-        async function handleAuraSignup(e) {
-            e.preventDefault();
-            const email = document.getElementById('aura-waitlist-email').value;
-
-            if (FORMSPREE_AURA_ID === 'YOUR_FORMSPREE_ID') {
-                alert('Aura Wear waitlist not yet configured. Please contact the admin.');
-                return;
+                msgEl.textContent = 'Network error. Please try again.';
+                msgEl.className = 'form-message error';
             }
 
-            try {
-                const response = await fetch(`https://formspree.io/f/${FORMSPREE_AURA_ID}`, {
-                    method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: new FormData(document.getElementById('aura-form'))
-                });
-
-                if (response.ok) {
-                    alert(`You're on the Aura Wear waitlist! We'll email ${email} when it launches.`);
-                    document.getElementById('aura-waitlist-email').value = '';
-                } else {
-                    alert('Error joining waitlist. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error joining waitlist. Please try again.');
-            }
+            btn.textContent = 'Subscribe';
+            btn.disabled = false;
         }
     </script>
 </body>
