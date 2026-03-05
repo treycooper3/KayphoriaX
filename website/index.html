@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://kayphoriax.com data:; connect-src https://formspree.io; script-src 'self' 'unsafe-inline';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="description" content="KAYPHORIA X — Luxury fashion brand by Kayci Chisholm. Confidence. Creativity. Couture. Featured at NYFW and LAFW.">
-    <title>KAYPHORIA X — Confidence. Creativity. Couture.</title>
+    <meta name="description" content="Shop luxury designer lingerie & couture by Kayci Chisholm. Inclusive intimate wear & runway fashion from NYFW. Discover Aura Wear AI styling. Shop now →">
+    <title>KAYPHORIA X | Luxury Lingerie & Couture Fashion</title>
+    <link rel="canonical" href="https://kayphoriax.style">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kayphoriax.style">
+    <meta property="og:title" content="KAYPHORIA X | Luxury Lingerie & Couture Fashion">
+    <meta property="og:description" content="Shop luxury designer lingerie & couture by Kayci Chisholm. Inclusive intimate wear & runway fashion from NYFW. Discover Aura Wear AI styling.">
+    <meta property="og:image" content="https://kayphoriax.style/assets/hero-bg.jpg">
+    <meta property="og:site_name" content="KAYPHORIA X">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kayphoriaoffici">
+    <meta name="twitter:title" content="KAYPHORIA X | Luxury Lingerie & Couture Fashion">
+    <meta name="twitter:description" content="Shop luxury designer lingerie & couture by Kayci Chisholm. Inclusive intimate wear & runway fashion from NYFW. Discover Aura Wear AI styling.">
+    <meta name="twitter:image" content="https://kayphoriax.style/assets/hero-bg.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -691,6 +705,49 @@
 
         .about-image:hover img { transform: scale(1.03); }
 
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--black);
+            color: var(--white);
+            padding: 6rem 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .testimonial-card {
+            background: #111;
+            border-top: 3px solid var(--fairy-gold);
+            border-radius: 4px;
+            padding: 2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .testimonial-card blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e8e0f5;
+            flex: 1;
+        }
+        .testimonial-card blockquote::before { content: '\201C'; color: var(--fairy-gold); font-size: 1.5rem; line-height: 0; vertical-align: -0.4em; margin-right: 0.2em; }
+        .testimonial-card blockquote::after { content: '\201D'; color: var(--fairy-gold); font-size: 1.5rem; line-height: 0; vertical-align: -0.4em; margin-left: 0.2em; }
+        .testimonial-attribution {
+            font-size: 0.8rem;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--fairy-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        @media (max-width: 900px) {
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+
         /* ===== BRAND EXPERIENCE ===== */
         .brand-experience {
             background: var(--deep-purple);
@@ -876,7 +933,8 @@
         .collection-card h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
             color: var(--white);
         }
 
@@ -1504,6 +1562,129 @@
             .credentials { grid-template-columns: 1fr; }
         }
     </style>
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "ClothingStore"],
+      "name": "KAYPHORIA X",
+      "url": "https://kayphoriax.style",
+      "sameAs": [
+        "https://kayphoriax.com",
+        "https://instagram.com/kayphoriaofficial",
+        "https://tiktok.com/@kayphoriaofficial",
+        "https://youtube.com/@kayphoriaofficial"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Kayci Chisholm",
+        "jobTitle": "Founder & CEO",
+        "description": "2x Met Gala attendee, Vogue Club member, NYFW Creative Director, SHEIN Collaborating Designer"
+      },
+      "description": "KAYPHORIA X is a luxury lingerie and couture fashion brand founded by Kayci Chisholm in 2019. We design premium inclusive intimate wear, runway couture, and streetwear featured at NYFW and LAFW."
+    }
+    </script>
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is KAYPHORIA X?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAYPHORIA X is a luxury inclusive fashion brand founded by Kayci Chisholm — a 2x Met Gala attendee and Vogue Club member. We design couture, lingerie, and streetwear for every body."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Aura Wear?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aura Wear is KAYPHORIA X's AI-powered personal styling app. It curates outfit recommendations based on your mood and Soul Aura energy, with virtual try-on coming to iOS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do KAYPHORIA X drops work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAYPHORIA X releases limited-edition collections in drops. Join the WAVE email list to get early access before each drop goes public."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get early access to new drops?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sign up for the WAVE newsletter at kayphoriax.style to be first in line for every drop, restock notification, and Aura Wear beta access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does KAYPHORIA X ship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAYPHORIA X ships across the U.S. with free shipping on orders over $100. Shop at kayphoriax.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is KAYPHORIA X a luxury lingerie brand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. KAYPHORIA X designs luxury inclusive lingerie — premium intimate wear crafted for every body type and identity. Shop the lingerie collection at kayphoriax.com/collections/l-i-n-g-e-r-i-e."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Kayci Chisholm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kayci Chisholm is the founder and CEO of KAYPHORIA X, a luxury lingerie and couture brand. She is a 2x Met Gala attendee, Vogue Club member, NYFW Creative Director at The Model Experience, and SHEIN Collaborating Designer. She studied Fashion Business at LIM College and earned her BS from Tuskegee University."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes KAYPHORIA X different from other luxury fashion brands?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAYPHORIA X combines luxury couture craftsmanship with radical inclusivity — designing lingerie, runway pieces, and streetwear for every body type. Founded by Kayci Chisholm, the brand has shown at NYFW and LAFW and developed Aura Wear, an AI-powered personal styling app."
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- Schema: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "KAYPHORIA X",
+      "url": "https://kayphoriax.style"
+    }
+    </script>
+    <!-- Schema: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kayci Chisholm",
+      "jobTitle": "Founder & CEO, KAYPHORIA X",
+      "description": "Kayci Chisholm is the founder and CEO of KAYPHORIA X, a luxury lingerie and couture brand. She is a 2x Met Gala attendee, Vogue Club member, NYFW Creative Director at The Model Experience, and SHEIN Collaborating Designer.",
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Tuskegee University" },
+        { "@type": "CollegeOrUniversity", "name": "LIM College" }
+      ],
+      "brand": { "@type": "Brand", "name": "KAYPHORIA X", "url": "https://kayphoriax.style" },
+      "sameAs": [
+        "https://instagram.com/kayphoriaofficial",
+        "https://tiktok.com/@kayphoriaofficial"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Fairy Particle Canvas -->
@@ -1511,14 +1692,14 @@
 
     <!-- Announcement Bar -->
     <div class="announcement">
-        FREE U.S. SHIPPING ON ORDERS OVER $100
+        New drop incoming &mdash; March 2026. <a href="#newsletter" style="color:var(--fairy-gold); text-decoration:underline; font-weight:600;">Join the waitlist</a> to shop first. &nbsp;✦&nbsp; Free U.S. shipping on orders $100+
     </div>
 
     <!-- Navbar -->
     <nav>
         <div class="nav-content">
             <div class="logo">
-                <img src="https://kayphoriax.com/cdn/shop/files/7D55A48C-9A63-4FAB-A803-B198E76C68DA_300x300.png" alt="KAYPHORIA X">
+                <img src="https://kayphoriax.com/cdn/shop/files/7D55A48C-9A63-4FAB-A803-B198E76C68DA_300x300.png" alt="KAYPHORIA X logo">
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -1547,19 +1728,20 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="assets/hero-bg.jpg" alt="" onerror="this.style.display='none'">
+            <img src="assets/hero-bg.jpg" alt="KAYPHORIA X luxury inclusive fashion — hero campaign" onerror="this.style.display='none'">
         </div>
         <div class="hero-content">
             <p class="hero-eyebrow">KX Runway Limited Edition &mdash; FW Collection SS26</p>
-            <h1>Confidence.<br>Creativity.<br><span class="accent">Couture.</span></h1>
-            <p class="hero-tagline">Luxury fashion built on inclusivity and authenticity. Designed by Kayci Chisholm, featured at New York Fashion Week and LA Fashion Week.</p>
+            <h1>Luxury Lingerie &amp;<br>Couture from NYFW<br><span class="accent">to You.</span></h1>
+            <p class="hero-tagline">Luxury lingerie and couture designed by Kayci Chisholm — 2x Met Gala attendee, Vogue Club member, and NYFW Creative Director. Built for every body.</p>
+            <p style="font-style:italic; color:var(--fairy-gold); font-size:0.9rem; margin-bottom:1.5rem; opacity:0.9;">&ldquo;Designed by a 2x Met Gala attendee and Vogue Club member who built this brand for everyone those rooms forgot.&rdquo;</p>
             <div class="hero-ctas">
                 <a href="https://kayphoriax.com" class="btn btn-white">Shop Now</a>
                 <a href="#aura" class="btn btn-accent">Explore Aura Wear</a>
             </div>
         </div>
         <div class="hero-image-side">
-            <img src="assets/hero-bg.jpg" alt="KAYPHORIA X Fashion" onerror="this.parentElement.style.display='none'">
+            <img src="assets/hero-bg.jpg" alt="KAYPHORIA X luxury inclusive fashion — hero campaign" onerror="this.parentElement.style.display='none'">
         </div>
     </section>
 
@@ -1601,7 +1783,42 @@
                 </div>
 
                 <div class="about-image reveal-right">
-                    <img src="assets/kayci-about.jpg" alt="Kayci Chisholm — Founder & CEO of KAYPHORIA X">
+                    <img src="assets/kayci-about.jpg" alt="Kayci Chisholm, founder of KAYPHORIA X — 2x Met Gala attendee and Vogue Club member" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <p class="section-eyebrow" style="color:var(--fairy-gold);">From the Community</p>
+            <h2 style="color:var(--white);">What the WAVE Is Saying</h2>
+            <div class="section-divider"></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal stagger-1">
+                    <blockquote>KAYPHORIA X gave me the confidence to own that runway. Kayci is the most supportive designer &mdash; she walked us through every moment and kept the whole energy so positive.</blockquote>
+                    <div class="testimonial-attribution">Model &mdash; KAYPHORIA X Fashion Week Show</div>
+                </div>
+                <div class="testimonial-card reveal stagger-2">
+                    <blockquote>This was my very first runway show and Kayci made it unforgettable. She&rsquo;s genuinely one of my favorite designers to work with &mdash; the process is seamless and the pieces are stunning.</blockquote>
+                    <div class="testimonial-attribution">Model &mdash; KAYPHORIA X Debut Show</div>
+                </div>
+                <div class="testimonial-card reveal stagger-3">
+                    <blockquote>The KAYPHORIA X lingerie is everything &mdash; gorgeous, incredibly comfortable, and the quality actually speaks for itself. You can feel the care that went into every single piece.</blockquote>
+                    <div class="testimonial-attribution">KAYPHORIA X Customer</div>
+                </div>
+                <div class="testimonial-card reveal stagger-4">
+                    <blockquote>Walking in a KAYPHORIA X show is a full experience. The clothes move with you, the energy is electric, and Kayci makes sure every model feels beautiful and seen.</blockquote>
+                    <div class="testimonial-attribution">Model &mdash; KAYPHORIA X NYFW</div>
+                </div>
+                <div class="testimonial-card reveal stagger-1">
+                    <blockquote>I never felt more confident in my skin. Kayci designs for real bodies and it shows in every silhouette &mdash; every piece made me feel like the main character.</blockquote>
+                    <div class="testimonial-attribution">KAYPHORIA X Community Member</div>
+                </div>
+                <div class="testimonial-card reveal stagger-2">
+                    <blockquote>Being part of the KAYPHORIA X WAVE is different. It&rsquo;s not just fashion &mdash; it&rsquo;s a whole movement and I&rsquo;m proud to be part of it.</blockquote>
+                    <div class="testimonial-attribution">#KayphoriaXWave Community</div>
                 </div>
             </div>
         </div>
@@ -1610,7 +1827,7 @@
     <!-- Brand Experience -->
     <section class="brand-experience" id="experience">
         <div class="brand-experience-bg">
-            <img src="assets/KayphoriaAnime.png" alt="" loading="lazy">
+            <img src="assets/KayphoriaAnime.png" alt="KAYPHORIA X anime brand character — Aura Wear mascot" loading="lazy">
         </div>
         <div class="container">
             <div class="brand-experience-content reveal">
@@ -1640,31 +1857,31 @@
     <section class="brand" id="brand">
         <div class="container">
             <p class="section-eyebrow reveal">Curated Collections</p>
-            <h2 class="section-title reveal">Collections</h2>
+            <h2 class="section-title reveal">Luxury Lingerie &amp; Couture Collections</h2>
             <div class="section-divider"></div>
-            <p class="section-subtitle reveal">Curated with intention. Designed for every body.</p>
+            <p class="section-subtitle reveal">Luxury lingerie, couture runway pieces, designer accessories, and bold streetwear — crafted for every body.</p>
             <div class="collections-grid">
                 <a href="https://kayphoriax.com/collections/l-i-n-g-e-r-i-e" class="collection-card reveal stagger-1" style="background-image: url('assets/collection-lingerie.jpg');" data-collection="lingerie">
                     <span class="collect-badge">COLLECT</span>
-                    <h3>L I N G E R I E</h3>
-                    <p>Luxury intimate wear celebrating every body and identity</p>
+                    <h3>Luxury Lingerie</h3>
+                    <p>Luxury designer lingerie for every body — premium inclusive intimate wear</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
                 <a href="https://kayphoriax.com/collections/a-c-c-e-s-s-o-r-i-e-s" class="collection-card reveal stagger-2" style="background-image: url('assets/collection-accessories.jpg');" data-collection="accessories">
                     <span class="collect-badge">COLLECT</span>
-                    <h3>A C C E S S O R I E S</h3>
+                    <h3>Accessories</h3>
                     <p>Statement pieces that complete your couture look</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
                 <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal stagger-3" style="background-image: url('assets/collection-kxss.jpg');" data-collection="kxss">
                     <span class="collect-badge">COLLECT</span>
-                    <h3>K X S S</h3>
+                    <h3>KXSS</h3>
                     <p>Bold streetwear that makes a statement</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
                 <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal stagger-4" style="background-image: url('assets/collection-runway.jpg');" data-collection="runway">
                     <span class="collect-badge">COLLECT</span>
-                    <h3>R U N W A Y</h3>
+                    <h3>Couture Runway</h3>
                     <p>Curated runway-inspired pieces from NYFW &amp; LAFW</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
@@ -1768,44 +1985,44 @@
             <div class="carousel-track" id="carouselTrack">
                 <!-- First set -->
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 1.jpeg" alt="KAYPHORIA X Collection" loading="lazy">
+                    <img src="assets/Carousel 1.jpeg" alt="KAYPHORIA X fashion campaign — collection showcase" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">SS26 Collection</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 2.jpeg" alt="KAYPHORIA X Runway" loading="lazy">
+                    <img src="assets/Carousel 2.jpeg" alt="KAYPHORIA X runway show — NYFW and LAFW couture" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Runway Ready</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 3.jpeg" alt="KAYPHORIA X Editorial" loading="lazy">
+                    <img src="assets/Carousel 3.jpeg" alt="KAYPHORIA X editorial — inclusive luxury fashion" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Editorial</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 4.jpeg" alt="KAYPHORIA X Couture" loading="lazy">
+                    <img src="assets/Carousel 4.jpeg" alt="KAYPHORIA X couture piece — designer fashion by Kayci Chisholm" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Couture</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 5.jpeg" alt="KAYPHORIA X Fashion" loading="lazy">
+                    <img src="assets/Carousel 5.jpeg" alt="KAYPHORIA X fashion campaign — Kayci Chisholm brand" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">#KayphoriaXWave</span></div>
                 </div>
                 <!-- Duplicate set for seamless loop -->
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 1.jpeg" alt="KAYPHORIA X Collection" loading="lazy">
+                    <img src="assets/Carousel 1.jpeg" alt="KAYPHORIA X fashion campaign — collection showcase" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">SS26 Collection</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 2.jpeg" alt="KAYPHORIA X Runway" loading="lazy">
+                    <img src="assets/Carousel 2.jpeg" alt="KAYPHORIA X runway show — NYFW and LAFW couture" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Runway Ready</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 3.jpeg" alt="KAYPHORIA X Editorial" loading="lazy">
+                    <img src="assets/Carousel 3.jpeg" alt="KAYPHORIA X editorial — inclusive luxury fashion" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Editorial</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 4.jpeg" alt="KAYPHORIA X Couture" loading="lazy">
+                    <img src="assets/Carousel 4.jpeg" alt="KAYPHORIA X couture piece — designer fashion by Kayci Chisholm" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">Couture</span></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="assets/Carousel 5.jpeg" alt="KAYPHORIA X Fashion" loading="lazy">
+                    <img src="assets/Carousel 5.jpeg" alt="KAYPHORIA X fashion campaign — Kayci Chisholm brand" loading="lazy">
                     <div class="carousel-overlay"><span class="carousel-caption">#KayphoriaXWave</span></div>
                 </div>
             </div>
@@ -1842,13 +2059,13 @@
     <section class="newsletter" id="newsletter">
         <div class="container">
             <div class="newsletter-content reveal">
-                <p class="section-eyebrow">Stay Connected</p>
-                <h2>Get a Dose of the KAYPHORIA X Wave</h2>
+                <p class="section-eyebrow">WAVE Insiders Only</p>
+                <h2>Join the WAVE</h2>
                 <div class="section-divider"></div>
-                <p>Weekly updates on collections, community moments, and Aura Wear launch news.</p>
+                <p>Be first. Shop before the public. Early access to every drop, restock alerts, and Aura Wear beta invites &mdash; for WAVE insiders only.</p>
                 <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletterSignup(event)">
-                    <input type="email" id="newsletter-email" name="email" placeholder="Your email" required autocomplete="email">
-                    <button type="submit" id="newsletter-btn">Subscribe</button>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Your email address" required autocomplete="email">
+                    <button type="submit" id="newsletter-btn">Get Early Access &rarr;</button>
                 </form>
                 <div class="form-message" id="newsletter-message"></div>
             </div>
@@ -1879,6 +2096,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>KAYPHORIA X</h4>
+                    <p style="font-size:0.8rem; color:rgba(255,255,255,0.45); line-height:1.5; margin-bottom:0.75rem;">Luxury lingerie &amp; couture brand founded by Kayci Chisholm. NYFW &bull; LAFW &bull; Met Gala.</p>
                     <a href="https://kayphoriax.com">Shop</a>
                     <a href="#about">About Kayci</a>
                     <a href="#brand">Collections</a>
