@@ -21,6 +21,7 @@
     <meta name="twitter:title" content="KAYPHORIA X | Luxury Lingerie & Couture Fashion">
     <meta name="twitter:description" content="Shop luxury designer lingerie & couture by Kayci Chisholm. Inclusive intimate wear & runway fashion from NYFW. Discover Aura Wear AI styling.">
     <meta name="twitter:image" content="https://kayphoriax.style/assets/hero-bg.jpg">
+    <link rel="preload" href="assets/hero-bg.jpg" as="image" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -907,6 +908,16 @@
             padding: 2.5rem;
         }
 
+        .collection-card-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
         .collection-card::before {
             content: '';
             position: absolute;
@@ -1195,6 +1206,13 @@
             padding: 0 2rem;
         }
 
+        .press-item-link {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(229,188,239,0.4);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .press-item-link:hover { color: var(--accent); border-color: var(--accent); }
+
         .press-item::after {
             content: '\2726';
             display: inline-block;
@@ -1284,6 +1302,29 @@
         }
 
         /* ===== NEWSLETTER ===== */
+        .faq-section { background: var(--bg); padding: 6rem 0; }
+        .faq-list { max-width: 780px; margin: 2.5rem auto 0; }
+        .faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .faq-question {
+            width: 100%; background: none; border: none; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.4rem 0; text-align: left;
+            font-family: var(--serif-heading); font-size: 1.05rem; font-weight: 600;
+            color: var(--text); letter-spacing: 0.01em;
+        }
+        .faq-question::after {
+            content: '+'; font-size: 1.4rem; font-weight: 300;
+            color: var(--accent-dark); flex-shrink: 0; margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-question[aria-expanded="true"]::after { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.3s ease;
+        }
+        .faq-answer.open { max-height: 300px; padding-bottom: 1.25rem; }
+        .faq-answer p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; }
+
         .newsletter { background: var(--white); }
 
         .newsletter-content {
@@ -1635,7 +1676,7 @@
           "name": "Is KAYPHORIA X a luxury lingerie brand?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. KAYPHORIA X designs luxury inclusive lingerie — premium intimate wear crafted for every body type and identity. Shop the lingerie collection at kayphoriax.com/collections/l-i-n-g-e-r-i-e."
+            "text": "Yes. KAYPHORIA X designs luxury inclusive lingerie — premium intimate wear crafted for every body type and identity. Shop the lingerie collection at kayphoriax.com/collections/lingerie."
           }
         },
         {
@@ -1728,7 +1769,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="assets/hero-bg.jpg" alt="KAYPHORIA X luxury inclusive fashion — hero campaign" onerror="this.style.display='none'">
+            <img src="assets/hero-bg.jpg" alt="KAYPHORIA X luxury inclusive fashion — hero campaign" fetchpriority="high" loading="eager" onerror="this.style.display='none'">
         </div>
         <div class="hero-content">
             <p class="hero-eyebrow">KX Runway Limited Edition &mdash; FW Collection SS26</p>
@@ -1863,25 +1904,29 @@
             <!-- Live collections loaded from Shopify Storefront API via shop-embed.js -->
             <div id="kx-shop-collections" class="collections-grid">
                 <!-- Static fallback (shown while JS loads or if API is unavailable) -->
-                <a href="https://kayphoriax.com/collections/lingerie" class="collection-card reveal stagger-1" style="background-image: url('assets/collection-lingerie.jpg');" data-collection="lingerie">
+                <a href="https://kayphoriax.com/collections/lingerie" class="collection-card reveal stagger-1" data-collection="lingerie">
+                    <img src="assets/collection-lingerie.jpg" alt="KAYPHORIA X Luxury Lingerie collection — premium inclusive intimate wear" loading="lazy" class="collection-card-img">
                     <span class="collect-badge">COLLECT</span>
                     <h3>Luxury Lingerie</h3>
                     <p>Luxury designer lingerie for every body — premium inclusive intimate wear</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/accessories" class="collection-card reveal stagger-2" style="background-image: url('assets/collection-accessories.jpg');" data-collection="accessories">
+                <a href="https://kayphoriax.com/collections/accessories" class="collection-card reveal stagger-2" data-collection="accessories">
+                    <img src="assets/collection-accessories.jpg" alt="KAYPHORIA X Designer Accessories — statement pieces that complete your couture look" loading="lazy" class="collection-card-img">
                     <span class="collect-badge">COLLECT</span>
                     <h3>Accessories</h3>
                     <p>Statement pieces that complete your couture look</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal stagger-3" style="background-image: url('assets/collection-kxss.jpg');" data-collection="kxss">
+                <a href="https://kayphoriax.com/collections/kxss" class="collection-card reveal stagger-3" data-collection="kxss">
+                    <img src="assets/collection-kxss.jpg" alt="KAYPHORIA X KXSS Streetwear collection — bold cultural streetwear" loading="lazy" class="collection-card-img">
                     <span class="collect-badge">COLLECT</span>
                     <h3>KXSS</h3>
                     <p>Bold streetwear that makes a statement</p>
                     <span class="card-arrow">Shop Collection &rarr;</span>
                 </a>
-                <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal stagger-4" style="background-image: url('assets/collection-runway.jpg');" data-collection="couture">
+                <a href="https://kayphoriax.com/collections/runway" class="collection-card reveal stagger-4" data-collection="couture">
+                    <img src="assets/collection-runway.jpg" alt="KAYPHORIA X Couture Runway — NYFW and LAFW designer pieces by Kayci Chisholm" loading="lazy" class="collection-card-img">
                     <span class="collect-badge">COLLECT</span>
                     <h3>Couture Runway</h3>
                     <p>Curated runway-inspired pieces from NYFW &amp; LAFW</p>
@@ -2041,9 +2086,9 @@
             <span class="press-item">Vogue Club</span>
             <span class="press-item">Met Gala</span>
             <span class="press-item">LIM College</span>
-            <span class="press-item">CanvasRebel</span>
-            <span class="press-item">Voyage LA</span>
-            <span class="press-item">Bold Journey</span>
+            <a href="https://canvasrebel.com" target="_blank" rel="noopener" class="press-item press-item-link">CanvasRebel</a>
+            <a href="https://voyagela.com" target="_blank" rel="noopener" class="press-item press-item-link">Voyage LA</a>
+            <a href="https://boldjourney.com" target="_blank" rel="noopener" class="press-item press-item-link">Bold Journey</a>
             <span class="press-item">Tuskegee University</span>
             <span class="press-item">New York Fashion Week</span>
             <span class="press-item">LA Fashion Week</span>
@@ -2052,8 +2097,51 @@
             <span class="press-item">Vogue Club</span>
             <span class="press-item">Met Gala</span>
             <span class="press-item">LIM College</span>
-            <span class="press-item">CanvasRebel</span>
-            <span class="press-item">Voyage LA</span>
+            <a href="https://canvasrebel.com" target="_blank" rel="noopener" class="press-item press-item-link">CanvasRebel</a>
+            <a href="https://voyagela.com" target="_blank" rel="noopener" class="press-item press-item-link">Voyage LA</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <p class="section-eyebrow">Got Questions</p>
+            <h2 style="text-align:center; margin-bottom:0.5rem;">Frequently Asked Questions</h2>
+            <div class="section-divider"></div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">What is KAYPHORIA X?</button>
+                    <div class="faq-answer"><p>KAYPHORIA X is a luxury inclusive fashion brand founded by Kayci Chisholm — a 2x Met Gala attendee and Vogue Club member. We design couture, lingerie, and streetwear for every body.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">What is Aura Wear?</button>
+                    <div class="faq-answer"><p>Aura Wear is KAYPHORIA X's AI-powered personal styling app. It curates outfit recommendations based on your mood and Soul Aura energy, with virtual try-on coming to iOS.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">How do KAYPHORIA X drops work?</button>
+                    <div class="faq-answer"><p>KAYPHORIA X releases limited-edition collections in drops. Join the WAVE email list to get early access before each drop goes public.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">How do I get early access to new drops?</button>
+                    <div class="faq-answer"><p>Sign up for the WAVE newsletter below to be first in line for every drop, restock notification, and Aura Wear beta access.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Where does KAYPHORIA X ship?</button>
+                    <div class="faq-answer"><p>KAYPHORIA X ships across the U.S. with free shipping on orders over $100. <a href="https://kayphoriax.com" style="color:var(--accent);">Shop at kayphoriax.com.</a></p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Is KAYPHORIA X a luxury lingerie brand?</button>
+                    <div class="faq-answer"><p>Yes. KAYPHORIA X designs luxury inclusive lingerie — premium intimate wear crafted for every body type and identity. <a href="https://kayphoriax.com/collections/lingerie" style="color:var(--accent);">Shop the lingerie collection.</a></p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Who is Kayci Chisholm?</button>
+                    <div class="faq-answer"><p>Kayci Chisholm is the founder and CEO of KAYPHORIA X. She is a 2x Met Gala attendee, Vogue Club member, NYFW Creative Director at The Model Experience, and SHEIN Collaborating Designer. She studied Fashion Business at LIM College and earned her BS from Tuskegee University.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">What makes KAYPHORIA X different from other luxury fashion brands?</button>
+                    <div class="faq-answer"><p>KAYPHORIA X combines luxury couture craftsmanship with radical inclusivity — designing lingerie, runway pieces, and streetwear for every body type. Founded by Kayci Chisholm, the brand has shown at NYFW and LAFW and developed Aura Wear, an AI-powered personal styling app.</p></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2103,6 +2191,7 @@
                     <a href="#about">About Kayci</a>
                     <a href="#brand">Collections</a>
                     <a href="https://kayphoriax.com/pages/faq">FAQ</a>
+                    <a href="https://kayphoriax.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
                 </div>
                 <div class="footer-section">
                     <h4>Aura Wear</h4>
@@ -2439,6 +2528,23 @@
             btn.textContent = 'Subscribe';
             btn.disabled = false;
         }
+    </script>
+
+    <!-- FAQ accordion -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var expanded = this.getAttribute('aria-expanded') === 'true';
+                document.querySelectorAll('.faq-question').forEach(function(b) {
+                    b.setAttribute('aria-expanded', 'false');
+                    b.nextElementSibling.classList.remove('open');
+                });
+                if (!expanded) {
+                    this.setAttribute('aria-expanded', 'true');
+                    this.nextElementSibling.classList.add('open');
+                }
+            });
+        });
     </script>
 
     <!-- Shopify Storefront API — live collections on kayphoriax.style -->
