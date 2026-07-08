@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://a.klaviyo.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'none';" />
+  <meta name="theme-color" content="#F8F7FF" />
+  <title>Aura Wear — Join the Waitlist</title>
+  <meta name="description" content="Aura Wear reads your mood and styles you for it. Log your aura and let your energy dress you. Join the waitlist for first access to the AI styling app." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Aura Wear — Let your energy dress you." />
+  <meta property="og:description" content="AI styling that reads your mood and dresses you for it. Join the waitlist for first access." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kayphoriax.style/aurawear-waitlist.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #A594F9;
+      --primary-dark: #8B7AE0;
+      --amethyst: #E5BCEF;
+      --lilac: #B2A4FF;
+      --gold: #D4AF37;
+      --surface-cool: #F8F7FF;
+      --card: #FFFFFF;
+      --border: #EDEDFF;
+      --text: #1E1E2C;
+      --text-muted: #6D6D91;
+      --shimmer: linear-gradient(135deg, #E5BCEF 0%, #D4AF37 50%, #B2A4FF 100%);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #F0EBFF 0%, rgba(240,235,255,0) 60%),
+        radial-gradient(900px 500px at 90% 20%, #FBEAF6 0%, rgba(251,234,246,0) 55%),
+        var(--surface-cool);
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    /* ── Aura orb ── */
+    .orb-stage { height: 132px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+    .orb {
+      width: 108px; height: 108px; border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, var(--amethyst) 34%, var(--primary) 70%, var(--lilac) 100%);
+      box-shadow: 0 0 0 8px rgba(165,148,249,0.08), 0 18px 50px -12px rgba(165,148,249,0.55);
+      animation: breathe 5.5s ease-in-out infinite;
+      position: relative;
+    }
+    .orb::after {
+      content: ""; position: absolute; inset: -18px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(229,188,239,0.35) 0%, rgba(229,188,239,0) 70%);
+      animation: halo 5.5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 8px rgba(165,148,249,0.08), 0 18px 50px -12px rgba(165,148,249,0.55); }
+      50% { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(165,148,249,0.05), 0 26px 60px -10px rgba(165,148,249,0.6); }
+    }
+    @keyframes halo { 0%,100% { opacity: .5; transform: scale(1); } 50% { opacity: .9; transform: scale(1.12); } }
+
+    .eyebrow {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--primary-dark); margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 8vw, 2.9rem); line-height: 1.08; letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+    h1 .shimmer {
+      background: var(--shimmer); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; font-style: italic;
+    }
+
+    .lede { color: var(--text-muted); font-size: 1.02rem; max-width: 27rem; margin: 0 auto 20px; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 28px; }
+    .pill {
+      font-size: 0.74rem; font-weight: 500; color: var(--primary-dark);
+      background: rgba(165,148,249,0.10); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 999px;
+    }
+
+    /* ── Card / form ── */
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 24px; padding: 24px 20px;
+      box-shadow: 0 24px 60px -30px rgba(126,105,209,0.45);
+      text-align: left;
+    }
+    .field { margin-bottom: 12px; }
+    label { display: block; font-size: 0.76rem; font-weight: 600; color: var(--text-muted); margin: 0 0 6px 4px; }
+    input {
+      width: 100%; font-family: var(--font-sans); font-size: 1rem; color: var(--text);
+      background: var(--surface-cool); border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; transition: border-color .15s, box-shadow .15s;
+    }
+    input::placeholder { color: #A9A9C4; }
+    input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(165,148,249,0.15); }
+    input.invalid { border-color: #E08B8B; box-shadow: 0 0 0 4px rgba(224,139,139,0.12); }
+
+    .btn {
+      width: 100%; margin-top: 6px; cursor: pointer;
+      font-family: var(--font-sans); font-size: 1rem; font-weight: 700; letter-spacing: 0.02em;
+      color: #2A2140; border: none; border-radius: 14px; padding: 16px;
+      background: var(--shimmer); background-size: 180% 180%;
+      box-shadow: 0 12px 30px -10px rgba(212,175,55,0.5);
+      transition: transform .12s, box-shadow .12s, opacity .12s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 36px -10px rgba(212,175,55,0.6); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.65; cursor: default; transform: none; }
+
+    .consent { font-size: 0.72rem; color: var(--text-muted); margin-top: 12px; text-align: center; }
+    .consent a { color: var(--primary-dark); }
+
+    .msg { font-size: 0.82rem; margin-top: 12px; text-align: center; min-height: 1.1em; }
+    .msg.error { color: #C4595A; }
+
+    /* ── Success ── */
+    .success { display: none; }
+    .success h2 { font-family: var(--font-serif); font-weight: 600; font-size: 2rem; margin-bottom: 10px; }
+    .success p { color: var(--text-muted); max-width: 24rem; margin: 0 auto; }
+
+    footer { margin-top: 30px; font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.02em; }
+    footer .house { font-weight: 600; color: var(--primary-dark); letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.64rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb, .orb::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- FORM VIEW -->
+    <section id="view-form">
+      <div class="orb-stage"><div class="orb" aria-hidden="true"></div></div>
+      <p class="eyebrow">Aura Wear · AI Styling</p>
+      <h1>Let your energy <span class="shimmer">dress you.</span></h1>
+      <p class="lede">Aura Wear reads your mood and styles you for it. Log your aura, and your closet — plus the pieces you'll want next — arrange themselves. Join the waitlist for first access.</p>
+
+      <div class="pills">
+        <span class="pill">Daily aura check-in</span>
+        <span class="pill">AI outfit styling</span>
+        <span class="pill">Your avatar, your sizes</span>
+        <span class="pill">Early access to drops</span>
+      </div>
+
+      <div class="card">
+        <form id="waitlist-form" novalidate>
+          <div class="field">
+            <label for="fname">First name <span style="font-weight:400">(optional)</span></label>
+            <input id="fname" name="fname" type="text" autocomplete="given-name" placeholder="Your first name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" required />
+          </div>
+          <button id="submit-btn" class="btn" type="submit">Join the Waitlist</button>
+          <p class="consent">By joining, you agree to receive email and text updates about the Aura Wear launch. Unsubscribe anytime.</p>
+          <p id="form-msg" class="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- SUCCESS VIEW -->
+    <section id="view-success" class="success">
+      <div class="orb-stage"><div class="orb" aria-hidden="true"></div></div>
+      <p class="eyebrow">You're in</p>
+      <h2>You're on the list.</h2>
+      <p>Welcome to the WAVE. You'll be among the first to step inside Aura Wear — early access, first drops, and your energy, dressed. Watch your inbox.</p>
+    </section>
+
+    <footer>
+      <p class="house">The KAYPHORIA X House</p>
+      <p style="margin-top:6px">Couture · Lingerie · AI Styling</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      // PUBLIC Klaviyo company key — safe to expose (this is Klaviyo's onsite
+      // subscribe path). Signups land in the KayphoriaX "Newsletter" list,
+      // which syncs to the Shopify store. NEVER put the private pk_ key here.
+      var KLAVIYO_PUBLIC_KEY = 'TRDEx7';
+      var KLAVIYO_LIST_ID = 'VMj4zR';
+
+      var form = document.getElementById('waitlist-form');
+      var btn = document.getElementById('submit-btn');
+      var msg = document.getElementById('form-msg');
+      var emailEl = document.getElementById('email');
+      var phoneEl = document.getElementById('phone');
+      var fnameEl = document.getElementById('fname');
+
+      function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((e || '').trim()); }
+
+      // Normalize to E.164 (Klaviyo requires it). US-friendly, accepts international with +.
+      function normalizePhone(raw) {
+        var s = (raw || '').trim();
+        var plus = s.charAt(0) === '+';
+        var d = s.replace(/\D/g, '');
+        if (plus) { return (d.length >= 8 && d.length <= 15) ? '+' + d : null; }
+        if (d.length === 10) return '+1' + d;          // US 10-digit
+        if (d.length === 11 && d.charAt(0) === '1') return '+' + d; // US with country code
+        return null;
+      }
+
+      function setInvalid(el, bad) { el.classList.toggle('invalid', !!bad); }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = ''; msg.className = 'msg';
+
+        var email = emailEl.value.trim().toLowerCase();
+        var phone = normalizePhone(phoneEl.value);
+        var fname = fnameEl.value.trim();
+
+        setInvalid(emailEl, !isValidEmail(email));
+        setInvalid(phoneEl, !phone);
+
+        if (!isValidEmail(email)) { msg.textContent = 'Please enter a valid email address.'; msg.className = 'msg error'; emailEl.focus(); return; }
+        if (!phone) { msg.textContent = 'Please enter a valid phone number, including area code.'; msg.className = 'msg error'; phoneEl.focus(); return; }
+
+        btn.disabled = true; btn.textContent = 'Joining…';
+
+        var profileAttrs = { email: email, phone_number: phone };
+        if (fname) profileAttrs.first_name = fname;
+
+        var payload = {
+          data: {
+            type: 'subscription',
+            attributes: {
+              custom_source: 'AuraWear Waitlist',
+              profile: { data: { type: 'profile', attributes: profileAttrs } }
+            },
+            relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } }
+          }
+        };
+
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_PUBLIC_KEY, {
+          method: 'POST',
+          headers: { revision: '2024-10-15', 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            if (res.ok || res.status === 202) {
+              document.getElementById('view-form').style.display = 'none';
+              var s = document.getElementById('view-success');
+              s.style.display = 'block';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              throw new Error('HTTP ' + res.status);
+            }
+          })
+          .catch(function () {
+            btn.disabled = false; btn.textContent = 'Join the Waitlist';
+            msg.textContent = 'Something went wrong — please try again.';
+            msg.className = 'msg error';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

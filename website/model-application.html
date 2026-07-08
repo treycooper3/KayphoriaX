@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://a.klaviyo.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'none';" />
+  <meta name="theme-color" content="#110d1a" />
+  <title>Model &amp; Ambassador Casting — KAYPHORIA X | Orlando</title>
+  <meta name="description" content="KAYPHORIA X is casting models and brand ambassadors in the Orlando area for four upcoming photo shoots and campaigns — plus New York Fashion Week and Miami Swim Week. Apply now." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="KAYPHORIA X Model &amp; Ambassador Casting — Orlando" />
+  <meta property="og:description" content="Four photo shoots and campaigns. NYFW. Miami Swim Week. Luxury has no size limit — apply to model for KAYPHORIA X." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kayphoriax.style/model-application.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --black: #0a0a0a;
+      --accent: #e5bcef;
+      --accent-dark: #c89dd4;
+      --accent-light: #f0e8ff;
+      --deep-purple: #110d1a;
+      --fairy-gold: #d4af37;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --fairy-shimmer: linear-gradient(135deg, #e5bcef 0%, #d4af37 50%, #b2a4ff 100%);
+      --font-heading: 'Neuton', Georgia, serif;
+      --font-body: 'Playfair Display', Georgia, serif;
+      --font-ui: 'DM Sans', system-ui, sans-serif;
+      --font-pixel: 'Press Start 2P', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100dvh;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background:
+        radial-gradient(900px 420px at 80% -10%, rgba(229,188,239,0.16) 0%, rgba(229,188,239,0) 60%),
+        radial-gradient(700px 380px at 10% 110%, rgba(212,175,55,0.10) 0%, rgba(212,175,55,0) 55%),
+        var(--deep-purple);
+      color: #f5f0fa;
+      text-align: center;
+      padding: 72px 24px 64px;
+    }
+    .eyebrow {
+      font-family: var(--font-pixel);
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      color: var(--fairy-gold);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      line-height: 1.1;
+      max-width: 22ch;
+      margin: 0 auto 18px;
+    }
+    h1 .shimmer {
+      background: var(--fairy-shimmer);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+    .lede {
+      color: rgba(245,240,250,0.82);
+      font-size: 1.05rem;
+      max-width: 34rem;
+      margin: 0 auto 26px;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .pill {
+      font-family: var(--font-ui);
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--accent);
+      background: rgba(229,188,239,0.10);
+      border: 1px solid rgba(229,188,239,0.35);
+      padding: 6px 14px; border-radius: 999px;
+    }
+
+    /* ── Form card ── */
+    .wrap { max-width: 620px; margin: -34px auto 0; padding: 0 20px 60px; }
+    .card {
+      background: #ffffff;
+      border: 1px solid #efe9f5;
+      border-radius: 20px;
+      padding: 32px 26px;
+      box-shadow: 0 30px 70px -35px rgba(17,13,26,0.35);
+    }
+
+    .section-label {
+      font-family: var(--font-pixel);
+      font-size: 0.5rem;
+      letter-spacing: 0.24em;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      margin: 28px 0 14px;
+      padding-top: 22px;
+      border-top: 1px solid #f2edf7;
+    }
+    .section-label:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+    .field { margin-bottom: 16px; }
+    label, .q-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+    .hint { font-weight: 400; color: var(--text-muted); }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+      width: 100%;
+      font-family: var(--font-ui); font-size: 1rem; color: var(--text);
+      background: var(--bg);
+      border: 1.5px solid #e8e2ee;
+      border-radius: 12px;
+      padding: 13px 15px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    textarea { resize: vertical; min-height: 74px; }
+    input::placeholder, textarea::placeholder { color: #b0a8ba; }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent-dark);
+      box-shadow: 0 0 0 4px rgba(229,188,239,0.25);
+    }
+    input.invalid { border-color: #d98484; box-shadow: 0 0 0 4px rgba(217,132,132,0.12); }
+
+    /* ── Option pills (radio + checkbox) ── */
+    .options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .options.invalid-group { outline: 2px solid rgba(217,132,132,0.4); outline-offset: 6px; border-radius: 8px; }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .opt span {
+      display: inline-block; cursor: pointer;
+      font-family: var(--font-ui); font-size: 0.84rem; font-weight: 500;
+      color: var(--text);
+      background: var(--bg);
+      border: 1.5px solid #e8e2ee;
+      border-radius: 999px;
+      padding: 9px 16px;
+      transition: background .15s, border-color .15s, color .15s;
+      user-select: none;
+    }
+    .opt span:hover { border-color: var(--accent-dark); }
+    .opt input:checked + span {
+      background: var(--accent-light);
+      border-color: var(--accent-dark);
+      color: #4b3a5a;
+      font-weight: 700;
+    }
+    .opt input:focus-visible + span { box-shadow: 0 0 0 4px rgba(229,188,239,0.35); }
+
+    .btn {
+      width: 100%; margin-top: 26px; cursor: pointer;
+      font-family: var(--font-ui); font-size: 1rem; font-weight: 700; letter-spacing: 0.02em;
+      color: #2a2140; border: none; border-radius: 12px; padding: 16px;
+      background: var(--fairy-shimmer); background-size: 180% 180%;
+      box-shadow: 0 12px 30px -10px rgba(212,175,55,0.5);
+      transition: transform .12s, box-shadow .12s, opacity .12s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 36px -10px rgba(212,175,55,0.6); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.65; cursor: default; transform: none; }
+
+    .consent {
+      font-family: var(--font-ui);
+      font-size: 0.72rem; color: var(--text-muted);
+      margin-top: 14px; text-align: center;
+    }
+    .msg { font-family: var(--font-ui); font-size: 0.84rem; margin-top: 12px; text-align: center; min-height: 1.1em; }
+    .msg.error { color: #c4595a; }
+
+    /* ── Success ── */
+    .success { display: none; text-align: center; padding: 40px 10px; }
+    .success h2 { font-family: var(--font-heading); font-weight: 700; font-size: 2.2rem; margin-bottom: 12px; }
+    .success p { color: var(--text-muted); max-width: 26rem; margin: 0 auto; }
+
+    footer {
+      text-align: center;
+      padding: 0 20px 44px;
+      font-family: var(--font-ui);
+      font-size: 0.72rem; color: var(--text-muted);
+    }
+    footer .house {
+      font-family: var(--font-pixel);
+      font-size: 0.5rem; letter-spacing: 0.2em;
+      color: var(--accent-dark); text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Casting Call · Orlando</p>
+    <h1>Model for <span class="shimmer">KAYPHORIA X.</span></h1>
+    <p class="lede">We're casting models and brand ambassadors in the Orlando area for four upcoming photo shoots and campaigns — with runway opportunities at New York Fashion Week and Miami Swim Week. Luxury has no size limit.</p>
+    <div class="pills">
+      <span class="pill">4 shoots &amp; campaigns</span>
+      <span class="pill">New York Fashion Week</span>
+      <span class="pill">Miami Swim Week</span>
+      <span class="pill">All sizes XS–4X</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- FORM VIEW -->
+    <section id="view-form" class="card">
+      <form id="casting-form" novalidate>
+
+        <p class="section-label">About You</p>
+        <div class="field">
+          <label for="fullname">Full name</label>
+          <input id="fullname" name="fullname" type="text" autocomplete="name" placeholder="Your full name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(407) 555-0123" required />
+        </div>
+        <div class="field">
+          <label for="instagram">Instagram handle <span class="hint">(optional — portfolio or personal)</span></label>
+          <input id="instagram" name="instagram" type="text" placeholder="@yourhandle" />
+        </div>
+        <div class="field">
+          <p class="q-label">Are you based in the Orlando area?</p>
+          <div class="options" id="q-location">
+            <label class="opt"><input type="radio" name="location" value="Orlando area" /><span>Yes, Orlando area</span></label>
+            <label class="opt"><input type="radio" name="location" value="Nearby, willing to travel" /><span>Nearby — willing to travel</span></label>
+            <label class="opt"><input type="radio" name="location" value="Outside Central Florida" /><span>Outside Central Florida</span></label>
+          </div>
+        </div>
+
+        <p class="section-label">Availability</p>
+        <div class="field">
+          <p class="q-label">When are you generally available for shoots? <span class="hint">(select all that apply)</span></p>
+          <div class="options" id="q-availability">
+            <label class="opt"><input type="checkbox" name="availability" value="Weekday days" /><span>Weekday days</span></label>
+            <label class="opt"><input type="checkbox" name="availability" value="Weekday evenings" /><span>Weekday evenings</span></label>
+            <label class="opt"><input type="checkbox" name="availability" value="Weekends" /><span>Weekends</span></label>
+            <label class="opt"><input type="checkbox" name="availability" value="Flexible" /><span>Flexible / open</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="avail-notes">Anything we should know about your schedule? <span class="hint">(optional)</span></label>
+          <textarea id="avail-notes" name="avail-notes" placeholder="Travel dates, other bookings, best days to reach you…"></textarea>
+        </div>
+
+        <p class="section-label">The Work</p>
+        <div class="field">
+          <p class="q-label">Which of our four upcoming shoots &amp; campaigns interest you? <span class="hint">(select all that apply)</span></p>
+          <div class="options" id="q-interests">
+            <label class="opt"><input type="checkbox" name="interests" value="Editorial photo shoots" /><span>Editorial photo shoots</span></label>
+            <label class="opt"><input type="checkbox" name="interests" value="Brand campaigns" /><span>Brand campaigns</span></label>
+            <label class="opt"><input type="checkbox" name="interests" value="Social / UGC content" /><span>Social &amp; UGC content</span></label>
+            <label class="opt"><input type="checkbox" name="interests" value="Ongoing brand ambassador" /><span>Ongoing brand ambassador</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <p class="q-label">Are you comfortable modeling lingerie?</p>
+          <div class="options" id="q-lingerie">
+            <label class="opt"><input type="radio" name="lingerie" value="Yes" /><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="lingerie" value="Depends on the piece" /><span>Depends on the piece</span></label>
+            <label class="opt"><input type="radio" name="lingerie" value="No" /><span>No</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <p class="q-label">Interested in walking New York Fashion Week?</p>
+          <div class="options" id="q-nyfw">
+            <label class="opt"><input type="radio" name="nyfw" value="Yes" /><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="nyfw" value="No" /><span>No</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <p class="q-label">Interested in Miami Swim Week?</p>
+          <div class="options" id="q-msw">
+            <label class="opt"><input type="radio" name="msw" value="Yes" /><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="msw" value="No" /><span>No</span></label>
+          </div>
+        </div>
+
+        <button id="submit-btn" class="btn" type="submit">Submit My Application</button>
+        <p class="consent">By applying, you agree to receive email and text updates from KAYPHORIA X about casting and upcoming drops. Unsubscribe anytime.</p>
+        <p id="form-msg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- SUCCESS VIEW -->
+    <section id="view-success" class="success">
+      <p class="eyebrow" style="color: var(--accent-dark);">Application Received</p>
+      <h2>You're on our radar.</h2>
+      <p>Thank you for applying to model for KAYPHORIA X. Our team reviews every application — if you're a fit for one of our shoots, campaigns, or runway shows, we'll reach out by email or text. Welcome to the WAVE.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="house">The KAYPHORIA X House</p>
+    <p style="margin-top:8px">Couture · Lingerie · AI Styling</p>
+  </footer>
+
+  <script>
+    (function () {
+      // PUBLIC Klaviyo company key — safe to expose (Klaviyo's onsite subscribe
+      // path). Applications land in the KayphoriaX "Newsletter" list, which
+      // syncs to the Shopify store. Answers are saved as profile properties.
+      // NEVER put the private pk_ key here.
+      var KLAVIYO_PUBLIC_KEY = 'TRDEx7';
+      var KLAVIYO_LIST_ID = 'VMj4zR';
+
+      var form = document.getElementById('casting-form');
+      var btn = document.getElementById('submit-btn');
+      var msg = document.getElementById('form-msg');
+      var nameEl = document.getElementById('fullname');
+      var emailEl = document.getElementById('email');
+      var phoneEl = document.getElementById('phone');
+      var igEl = document.getElementById('instagram');
+      var notesEl = document.getElementById('avail-notes');
+
+      function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((e || '').trim()); }
+
+      // Normalize to E.164 (Klaviyo requires it). US-friendly, accepts international with +.
+      function normalizePhone(raw) {
+        var s = (raw || '').trim();
+        var plus = s.charAt(0) === '+';
+        var d = s.replace(/\D/g, '');
+        if (plus) { return (d.length >= 8 && d.length <= 15) ? '+' + d : null; }
+        if (d.length === 10) return '+1' + d;
+        if (d.length === 11 && d.charAt(0) === '1') return '+' + d;
+        return null;
+      }
+
+      function checkedValues(name) {
+        return Array.prototype.map.call(
+          form.querySelectorAll('input[name="' + name + '"]:checked'),
+          function (el) { return el.value; }
+        );
+      }
+
+      function setInvalid(el, bad) { el.classList.toggle('invalid', !!bad); }
+      function setGroupInvalid(id, bad) { document.getElementById(id).classList.toggle('invalid-group', !!bad); }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = ''; msg.className = 'msg';
+
+        var fullname = nameEl.value.trim();
+        var email = emailEl.value.trim().toLowerCase();
+        var phone = normalizePhone(phoneEl.value);
+        var instagram = igEl.value.trim();
+        var location = checkedValues('location')[0] || '';
+        var availability = checkedValues('availability');
+        var interests = checkedValues('interests');
+        var lingerie = checkedValues('lingerie')[0] || '';
+        var nyfw = checkedValues('nyfw')[0] || '';
+        var msw = checkedValues('msw')[0] || '';
+
+        setInvalid(nameEl, !fullname);
+        setInvalid(emailEl, !isValidEmail(email));
+        setInvalid(phoneEl, !phone);
+        setGroupInvalid('q-location', !location);
+        setGroupInvalid('q-availability', !availability.length);
+        setGroupInvalid('q-interests', !interests.length);
+        setGroupInvalid('q-lingerie', !lingerie);
+        setGroupInvalid('q-nyfw', !nyfw);
+        setGroupInvalid('q-msw', !msw);
+
+        if (!fullname) { fail('Please enter your full name.', nameEl); return; }
+        if (!isValidEmail(email)) { fail('Please enter a valid email address.', emailEl); return; }
+        if (!phone) { fail('Please enter a valid phone number, including area code.', phoneEl); return; }
+        if (!location) { fail('Please tell us where you’re based.'); return; }
+        if (!availability.length) { fail('Please select at least one availability option.'); return; }
+        if (!interests.length) { fail('Please select at least one shoot or campaign you’re interested in.'); return; }
+        if (!lingerie) { fail('Please answer the lingerie question.'); return; }
+        if (!nyfw) { fail('Please answer the New York Fashion Week question.'); return; }
+        if (!msw) { fail('Please answer the Miami Swim Week question.'); return; }
+
+        function fail(text, el) {
+          msg.textContent = text; msg.className = 'msg error';
+          if (el) el.focus();
+        }
+
+        btn.disabled = true; btn.textContent = 'Submitting…';
+
+        var nameParts = fullname.split(/\s+/);
+        var profileAttrs = {
+          email: email,
+          phone_number: phone,
+          first_name: nameParts[0],
+          properties: {
+            'Casting - Role': 'Model & Ambassador Applicant',
+            'Casting - Location': location,
+            'Casting - Availability': availability.join(', '),
+            'Casting - Interests': interests.join(', '),
+            'Casting - Comfortable Modeling Lingerie': lingerie,
+            'Casting - NYFW Interest': nyfw,
+            'Casting - Miami Swim Week Interest': msw
+          }
+        };
+        if (nameParts.length > 1) profileAttrs.last_name = nameParts.slice(1).join(' ');
+        if (instagram) profileAttrs.properties['Casting - Instagram'] = instagram;
+        if (notesEl.value.trim()) profileAttrs.properties['Casting - Schedule Notes'] = notesEl.value.trim();
+
+        var payload = {
+          data: {
+            type: 'subscription',
+            attributes: {
+              custom_source: 'Model & Ambassador Application',
+              profile: { data: { type: 'profile', attributes: profileAttrs } }
+            },
+            relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } }
+          }
+        };
+
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_PUBLIC_KEY, {
+          method: 'POST',
+          headers: { revision: '2024-10-15', 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            if (res.ok || res.status === 202) {
+              document.getElementById('view-form').style.display = 'none';
+              document.getElementById('view-success').style.display = 'block';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              throw new Error('HTTP ' + res.status);
+            }
+          })
+          .catch(function () {
+            btn.disabled = false; btn.textContent = 'Submit My Application';
+            msg.textContent = 'Something went wrong — please try again.';
+            msg.className = 'msg error';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
