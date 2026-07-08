@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://a.klaviyo.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://a.klaviyo.com https://api.web3forms.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'none';" />
   <meta name="theme-color" content="#110d1a" />
   <title>Model &amp; Ambassador Casting — KAYPHORIA X | Orlando</title>
   <meta name="description" content="KAYPHORIA X is casting models and brand ambassadors in the Orlando area for four upcoming photo shoots and campaigns — plus New York Fashion Week and Miami Swim Week. Apply now." />
@@ -328,6 +328,11 @@
       var KLAVIYO_PUBLIC_KEY = 'TRDEx7';
       var KLAVIYO_LIST_ID = 'VMj4zR';
 
+      // Web3Forms emails each application to kayphoriax@gmail.com.
+      // This access key is public by design (like the Klaviyo key above) —
+      // it can only submit forms, never read anything.
+      var WEB3FORMS_ACCESS_KEY = 'REPLACE_WITH_ACCESS_KEY';
+
       var form = document.getElementById('casting-form');
       var btn = document.getElementById('submit-btn');
       var msg = document.getElementById('form-msg');
@@ -420,6 +425,32 @@
         if (nameParts.length > 1) profileAttrs.last_name = nameParts.slice(1).join(' ');
         if (instagram) profileAttrs.properties['Casting - Instagram'] = instagram;
         if (notesEl.value.trim()) profileAttrs.properties['Casting - Schedule Notes'] = notesEl.value.trim();
+
+        // Email the full application to Kayci's inbox. Fire-and-forget:
+        // the applicant's success only depends on the Klaviyo signup below,
+        // so a hiccup here never blocks a submission.
+        if (WEB3FORMS_ACCESS_KEY.indexOf('REPLACE') === -1) {
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_ACCESS_KEY,
+              subject: 'New Model Application — ' + fullname,
+              from_name: 'KAYPHORIA X Casting',
+              'Full Name': fullname,
+              'Email': email,
+              'Phone': phone,
+              'Instagram': instagram || '—',
+              'Based In': location,
+              'Availability': availability.join(', '),
+              'Schedule Notes': notesEl.value.trim() || '—',
+              'Interested In': interests.join(', '),
+              'Comfortable Modeling Lingerie': lingerie,
+              'NYFW Interest': nyfw,
+              'Miami Swim Week Interest': msw
+            })
+          }).catch(function () { /* notification only — never block the applicant */ });
+        }
 
         var payload = {
           data: {
